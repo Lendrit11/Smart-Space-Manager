@@ -1,0 +1,40 @@
+Project Requirement 1: Conceptual Model
+overview
+Kjo faze perfshin ndertimin e modelit konceptual per projektin Smart Study Space Manager .
+qellimi eshte te pershkruajme konceptet kryesore qe sistemi jone do te perdor , mardheniet midis tyre dhe si paraqiten ato ne nje UML Class Diagram.
+
+Konceptet Kryesore
+
+
+Sistemi perbehet nga 9 klasa konceptuale:
+
+| Klasa                  | Përshkrimi                                            | Atributet kryesore                |
+| ---------------------- | ----------------------------------------------------- | --------------------------------- |
+|   Building             | Përfaqëson ndërtesën ku ndodhen hapësirat e studimit. | name, address, description        |
+|   Floor                | Një kat brenda ndërtesës.                             | floor_number, description         |
+|   Room                 | Një dhomë ose hapësirë studimi.                       | name, capacity, shape             |
+|   Person (abstrakte)   | Përfaqëson çdo përdorues të sistemit.                 | full_name , email                 |
+|   UserRole             | NLidh përdoruesin me rolin e tij.                     | user_id, role_id                  |
+|   Role                 | Përfaqëson rolin e përdoruesit (student, admin)       | name                              |
+|   Reservation          | Rezervimi i një dhome për një orar të caktuar.        | date, time_slot, status           |
+|   TimeSlot             | Përfaqëson një periudhë kohore për rezervim.          | start_time, end_time              |
+|   StudyPreference      | Preferencat e studimit të një studenti.               | preference_type, preference_value |
+
+
+Mardheniet midis klasave
+
+
+| Marrëdhënia               | Tipi        | Lloji i lidhjes                                 |
+| ------------------------- | ----------- | ------------------------------------------------|
+| Building → Floor          | Aggregation | Një ndërtesë përmban shumë kate                 |
+| Floor → Room              | Aggregation | Një kat përmban shumë dhoma                     |
+| Student → Reservation     | Association | Një student mund të bëjë shumë rezervime        |
+| Room → Reservation        | Association | Një dhomë mund të ketë shumë rezervime          |
+| Reservation → TimeSlot    | Association | Një rezervim i përket një periudhe kohe         |
+| user  → StudyPreference   | Aggregation | Një student ka shumë preferenca studimi         |
+| user → UserRole           | Association | Një përdorues mund të ketë një ose më shumë role|
+| UserRole → Role           | Association | Një UserRole lidhet me një rol të caktuar       |
+
+
+
+
