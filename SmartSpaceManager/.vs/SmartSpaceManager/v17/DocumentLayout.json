@@ -1,0 +1,257 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Jahir\\Desktop\\sisteme-softuerike\\SmartSpaceManager\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C824099D-F53E-4DF9-8667-A5F083CF04A4}|SmartSpaceManager.DAL\\SmartSpaceManager.DAL.csproj|c:\\users\\jahir\\desktop\\sisteme-softuerike\\smartspacemanager\\smartspacemanager.dal\\appdbcontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C824099D-F53E-4DF9-8667-A5F083CF04A4}|SmartSpaceManager.DAL\\SmartSpaceManager.DAL.csproj|solutionrelative:smartspacemanager.dal\\appdbcontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D732BC0-17D3-4167-B6DD-F91CEE22E82A}|SmartSpaceManager.API\\SmartSpaceManager.API.csproj|c:\\users\\jahir\\desktop\\sisteme-softuerike\\smartspacemanager\\smartspacemanager.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D732BC0-17D3-4167-B6DD-F91CEE22E82A}|SmartSpaceManager.API\\SmartSpaceManager.API.csproj|solutionrelative:smartspacemanager.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D732BC0-17D3-4167-B6DD-F91CEE22E82A}|SmartSpaceManager.API\\SmartSpaceManager.API.csproj|c:\\users\\jahir\\desktop\\sisteme-softuerike\\smartspacemanager\\smartspacemanager.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{2D732BC0-17D3-4167-B6DD-F91CEE22E82A}|SmartSpaceManager.API\\SmartSpaceManager.API.csproj|solutionrelative:smartspacemanager.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D732BC0-17D3-4167-B6DD-F91CEE22E82A}|SmartSpaceManager.API\\SmartSpaceManager.API.csproj|c:\\users\\jahir\\desktop\\sisteme-softuerike\\smartspacemanager\\smartspacemanager.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{2D732BC0-17D3-4167-B6DD-F91CEE22E82A}|SmartSpaceManager.API\\SmartSpaceManager.API.csproj|solutionrelative:smartspacemanager.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D732BC0-17D3-4167-B6DD-F91CEE22E82A}|SmartSpaceManager.API\\SmartSpaceManager.API.csproj|c:\\users\\jahir\\desktop\\sisteme-softuerike\\smartspacemanager\\smartspacemanager.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{2D732BC0-17D3-4167-B6DD-F91CEE22E82A}|SmartSpaceManager.API\\SmartSpaceManager.API.csproj|solutionrelative:smartspacemanager.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C824099D-F53E-4DF9-8667-A5F083CF04A4}|SmartSpaceManager.DAL\\SmartSpaceManager.DAL.csproj|c:\\users\\jahir\\desktop\\sisteme-softuerike\\smartspacemanager\\smartspacemanager.dal\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C824099D-F53E-4DF9-8667-A5F083CF04A4}|SmartSpaceManager.DAL\\SmartSpaceManager.DAL.csproj|solutionrelative:smartspacemanager.dal\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB96544D-FA14-4593-BF08-22DB72F4EE99}|SmartSpaceManager.Domain\\SmartSpaceManager.Domain.csproj|c:\\users\\jahir\\desktop\\sisteme-softuerike\\smartspacemanager\\smartspacemanager.domain\\model\\activitylog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB96544D-FA14-4593-BF08-22DB72F4EE99}|SmartSpaceManager.Domain\\SmartSpaceManager.Domain.csproj|solutionrelative:smartspacemanager.domain\\model\\activitylog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB96544D-FA14-4593-BF08-22DB72F4EE99}|SmartSpaceManager.Domain\\SmartSpaceManager.Domain.csproj|c:\\users\\jahir\\desktop\\sisteme-softuerike\\smartspacemanager\\smartspacemanager.domain\\model\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB96544D-FA14-4593-BF08-22DB72F4EE99}|SmartSpaceManager.Domain\\SmartSpaceManager.Domain.csproj|solutionrelative:smartspacemanager.domain\\model\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB96544D-FA14-4593-BF08-22DB72F4EE99}|SmartSpaceManager.Domain\\SmartSpaceManager.Domain.csproj|c:\\users\\jahir\\desktop\\sisteme-softuerike\\smartspacemanager\\smartspacemanager.domain\\model\\studypreference.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB96544D-FA14-4593-BF08-22DB72F4EE99}|SmartSpaceManager.Domain\\SmartSpaceManager.Domain.csproj|solutionrelative:smartspacemanager.domain\\model\\studypreference.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB96544D-FA14-4593-BF08-22DB72F4EE99}|SmartSpaceManager.Domain\\SmartSpaceManager.Domain.csproj|c:\\users\\jahir\\desktop\\sisteme-softuerike\\smartspacemanager\\smartspacemanager.domain\\model\\timeslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB96544D-FA14-4593-BF08-22DB72F4EE99}|SmartSpaceManager.Domain\\SmartSpaceManager.Domain.csproj|solutionrelative:smartspacemanager.domain\\model\\timeslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB96544D-FA14-4593-BF08-22DB72F4EE99}|SmartSpaceManager.Domain\\SmartSpaceManager.Domain.csproj|c:\\users\\jahir\\desktop\\sisteme-softuerike\\smartspacemanager\\smartspacemanager.domain\\model\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB96544D-FA14-4593-BF08-22DB72F4EE99}|SmartSpaceManager.Domain\\SmartSpaceManager.Domain.csproj|solutionrelative:smartspacemanager.domain\\model\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB96544D-FA14-4593-BF08-22DB72F4EE99}|SmartSpaceManager.Domain\\SmartSpaceManager.Domain.csproj|c:\\users\\jahir\\desktop\\sisteme-softuerike\\smartspacemanager\\smartspacemanager.domain\\model\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB96544D-FA14-4593-BF08-22DB72F4EE99}|SmartSpaceManager.Domain\\SmartSpaceManager.Domain.csproj|solutionrelative:smartspacemanager.domain\\model\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB96544D-FA14-4593-BF08-22DB72F4EE99}|SmartSpaceManager.Domain\\SmartSpaceManager.Domain.csproj|c:\\users\\jahir\\desktop\\sisteme-softuerike\\smartspacemanager\\smartspacemanager.domain\\model\\building.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB96544D-FA14-4593-BF08-22DB72F4EE99}|SmartSpaceManager.Domain\\SmartSpaceManager.Domain.csproj|solutionrelative:smartspacemanager.domain\\model\\building.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 383,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:4:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AppDbContextFactory.cs",
+              "DocumentMoniker": "C:\\Users\\Jahir\\Desktop\\sisteme-softuerike\\SmartSpaceManager\\SmartSpaceManager.DAL\\AppDbContextFactory.cs",
+              "RelativeDocumentMoniker": "SmartSpaceManager.DAL\\AppDbContextFactory.cs",
+              "ToolTip": "C:\\Users\\Jahir\\Desktop\\sisteme-softuerike\\SmartSpaceManager\\SmartSpaceManager.DAL\\AppDbContextFactory.cs",
+              "RelativeToolTip": "SmartSpaceManager.DAL\\AppDbContextFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T15:17:42.005Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Jahir\\Desktop\\sisteme-softuerike\\SmartSpaceManager\\SmartSpaceManager.API\\Program.cs",
+              "RelativeDocumentMoniker": "SmartSpaceManager.API\\Program.cs",
+              "ToolTip": "C:\\Users\\Jahir\\Desktop\\sisteme-softuerike\\SmartSpaceManager\\SmartSpaceManager.API\\Program.cs",
+              "RelativeToolTip": "SmartSpaceManager.API\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T14:53:29.338Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Jahir\\Desktop\\sisteme-softuerike\\SmartSpaceManager\\SmartSpaceManager.API\\appsettings.json",
+              "RelativeDocumentMoniker": "SmartSpaceManager.API\\appsettings.json",
+              "ToolTip": "C:\\Users\\Jahir\\Desktop\\sisteme-softuerike\\SmartSpaceManager\\SmartSpaceManager.API\\appsettings.json",
+              "RelativeToolTip": "SmartSpaceManager.API\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-04T14:52:27.422Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\Jahir\\Desktop\\sisteme-softuerike\\SmartSpaceManager\\SmartSpaceManager.API\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "SmartSpaceManager.API\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\Jahir\\Desktop\\sisteme-softuerike\\SmartSpaceManager\\SmartSpaceManager.API\\appsettings.Development.json",
+              "RelativeToolTip": "SmartSpaceManager.API\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-04T14:47:59.357Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\Jahir\\Desktop\\sisteme-softuerike\\SmartSpaceManager\\SmartSpaceManager.API\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "SmartSpaceManager.API\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\Jahir\\Desktop\\sisteme-softuerike\\SmartSpaceManager\\SmartSpaceManager.API\\Properties\\launchSettings.json",
+              "RelativeToolTip": "SmartSpaceManager.API\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-04T14:47:50.736Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Jahir\\Desktop\\sisteme-softuerike\\SmartSpaceManager\\SmartSpaceManager.DAL\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "SmartSpaceManager.DAL\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\Jahir\\Desktop\\sisteme-softuerike\\SmartSpaceManager\\SmartSpaceManager.DAL\\AppDbContext.cs",
+              "RelativeToolTip": "SmartSpaceManager.DAL\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T14:34:08.699Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Reservation.cs",
+              "DocumentMoniker": "C:\\Users\\Jahir\\Desktop\\sisteme-softuerike\\SmartSpaceManager\\SmartSpaceManager.Domain\\model\\Reservation.cs",
+              "RelativeDocumentMoniker": "SmartSpaceManager.Domain\\model\\Reservation.cs",
+              "ToolTip": "C:\\Users\\Jahir\\Desktop\\sisteme-softuerike\\SmartSpaceManager\\SmartSpaceManager.Domain\\model\\Reservation.cs",
+              "RelativeToolTip": "SmartSpaceManager.Domain\\model\\Reservation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T14:27:02.543Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ActivityLog.cs",
+              "DocumentMoniker": "C:\\Users\\Jahir\\Desktop\\sisteme-softuerike\\SmartSpaceManager\\SmartSpaceManager.Domain\\model\\ActivityLog.cs",
+              "RelativeDocumentMoniker": "SmartSpaceManager.Domain\\model\\ActivityLog.cs",
+              "ToolTip": "C:\\Users\\Jahir\\Desktop\\sisteme-softuerike\\SmartSpaceManager\\SmartSpaceManager.Domain\\model\\ActivityLog.cs",
+              "RelativeToolTip": "SmartSpaceManager.Domain\\model\\ActivityLog.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T14:27:30.898Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "StudyPreference.cs",
+              "DocumentMoniker": "C:\\Users\\Jahir\\Desktop\\sisteme-softuerike\\SmartSpaceManager\\SmartSpaceManager.Domain\\model\\StudyPreference.cs",
+              "RelativeDocumentMoniker": "SmartSpaceManager.Domain\\model\\StudyPreference.cs",
+              "ToolTip": "C:\\Users\\Jahir\\Desktop\\sisteme-softuerike\\SmartSpaceManager\\SmartSpaceManager.Domain\\model\\StudyPreference.cs",
+              "RelativeToolTip": "SmartSpaceManager.Domain\\model\\StudyPreference.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T14:26:34.182Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "TimeSlot.cs",
+              "DocumentMoniker": "C:\\Users\\Jahir\\Desktop\\sisteme-softuerike\\SmartSpaceManager\\SmartSpaceManager.Domain\\model\\TimeSlot.cs",
+              "RelativeDocumentMoniker": "SmartSpaceManager.Domain\\model\\TimeSlot.cs",
+              "ToolTip": "C:\\Users\\Jahir\\Desktop\\sisteme-softuerike\\SmartSpaceManager\\SmartSpaceManager.Domain\\model\\TimeSlot.cs",
+              "RelativeToolTip": "SmartSpaceManager.Domain\\model\\TimeSlot.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T14:26:16.059Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UserRole.cs",
+              "DocumentMoniker": "C:\\Users\\Jahir\\Desktop\\sisteme-softuerike\\SmartSpaceManager\\SmartSpaceManager.Domain\\model\\UserRole.cs",
+              "RelativeDocumentMoniker": "SmartSpaceManager.Domain\\model\\UserRole.cs",
+              "ToolTip": "C:\\Users\\Jahir\\Desktop\\sisteme-softuerike\\SmartSpaceManager\\SmartSpaceManager.Domain\\model\\UserRole.cs",
+              "RelativeToolTip": "SmartSpaceManager.Domain\\model\\UserRole.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T14:25:57.979Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Role.cs",
+              "DocumentMoniker": "C:\\Users\\Jahir\\Desktop\\sisteme-softuerike\\SmartSpaceManager\\SmartSpaceManager.Domain\\model\\Role.cs",
+              "RelativeDocumentMoniker": "SmartSpaceManager.Domain\\model\\Role.cs",
+              "ToolTip": "C:\\Users\\Jahir\\Desktop\\sisteme-softuerike\\SmartSpaceManager\\SmartSpaceManager.Domain\\model\\Role.cs",
+              "RelativeToolTip": "SmartSpaceManager.Domain\\model\\Role.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T14:25:40.046Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Building.cs",
+              "DocumentMoniker": "C:\\Users\\Jahir\\Desktop\\sisteme-softuerike\\SmartSpaceManager\\SmartSpaceManager.Domain\\model\\Building.cs",
+              "RelativeDocumentMoniker": "SmartSpaceManager.Domain\\model\\Building.cs",
+              "ToolTip": "C:\\Users\\Jahir\\Desktop\\sisteme-softuerike\\SmartSpaceManager\\SmartSpaceManager.Domain\\model\\Building.cs",
+              "RelativeToolTip": "SmartSpaceManager.Domain\\model\\Building.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T14:23:05.12Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

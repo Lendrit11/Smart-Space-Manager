@@ -1,0 +1,12 @@
+C:\Users\Jahir\Desktop\sisteme-softuerike\SmartSpaceManager\SmartSpaceManager.Domain\bin\Debug\net8.0\SmartSpaceManager.Domain.deps.json
+C:\Users\Jahir\Desktop\sisteme-softuerike\SmartSpaceManager\SmartSpaceManager.Domain\bin\Debug\net8.0\SmartSpaceManager.Domain.dll
+C:\Users\Jahir\Desktop\sisteme-softuerike\SmartSpaceManager\SmartSpaceManager.Domain\bin\Debug\net8.0\SmartSpaceManager.Domain.pdb
+C:\Users\Jahir\Desktop\sisteme-softuerike\SmartSpaceManager\SmartSpaceManager.Domain\obj\Debug\net8.0\SmartSpaceManager.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jahir\Desktop\sisteme-softuerike\SmartSpaceManager\SmartSpaceManager.Domain\obj\Debug\net8.0\SmartSpaceManager.Domain.AssemblyInfoInputs.cache
+C:\Users\Jahir\Desktop\sisteme-softuerike\SmartSpaceManager\SmartSpaceManager.Domain\obj\Debug\net8.0\SmartSpaceManager.Domain.AssemblyInfo.cs
+C:\Users\Jahir\Desktop\sisteme-softuerike\SmartSpaceManager\SmartSpaceManager.Domain\obj\Debug\net8.0\SmartSpaceManager.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Jahir\Desktop\sisteme-softuerike\SmartSpaceManager\SmartSpaceManager.Domain\obj\Debug\net8.0\SmartSpaceManager.Domain.sourcelink.json
+C:\Users\Jahir\Desktop\sisteme-softuerike\SmartSpaceManager\SmartSpaceManager.Domain\obj\Debug\net8.0\SmartSpaceManager.Domain.dll
+C:\Users\Jahir\Desktop\sisteme-softuerike\SmartSpaceManager\SmartSpaceManager.Domain\obj\Debug\net8.0\refint\SmartSpaceManager.Domain.dll
+C:\Users\Jahir\Desktop\sisteme-softuerike\SmartSpaceManager\SmartSpaceManager.Domain\obj\Debug\net8.0\SmartSpaceManager.Domain.pdb
+C:\Users\Jahir\Desktop\sisteme-softuerike\SmartSpaceManager\SmartSpaceManager.Domain\obj\Debug\net8.0\ref\SmartSpaceManager.Domain.dll
