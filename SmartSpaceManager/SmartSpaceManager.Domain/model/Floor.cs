@@ -14,6 +14,7 @@ namespace SmartSpaceManager.Domain.model
         public string? Description { get; set; }
 
         public Building? Building { get; set; }
-        public ICollection<Room> Rooms { get; set; } = new List<Room>();
+        public ICollection<Desk> Desks { get; set; }
+        public ICollection<Reservation> Reservations { get; set; }
     }
 }
