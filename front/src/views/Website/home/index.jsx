@@ -1,49 +1,122 @@
+// HomePage.jsx
 import React, { useState } from "react";
-import FloorTabs from "../../../components/Website/smartspace/FloorTabs";
-import FloorEditorWrapper from "../../../components/Website/smartspace/FloorEditorWrapper";
+import { useNavigate } from "react-router-dom";
 
-export default function App() {
-  // Vendos 3 kate fiks, jo më pak e jo më shumë
-  const [floors, setFloors] = useState([
-    { id: 1, name: "Kati 1" },
-    { id: 2, name: "Kati 2" },
-    { id: 3, name: "Kati 3" },
+export default function HomePage() {
+  const navigate = useNavigate();
+  const [buildings, setBuildings] = useState([
+    { id: 1, name: "Ndërtesa A", address: "Rruga e Pare", floors: 3 },
+    { id: 2, name: "Ndërtesa B", address: "Rruga e Dytë", floors: 2 },
+    { id: 3, name: "Ndërtesa C", address: "Rruga e Trete", floors: 4 },
   ]);
 
-  // Selektimi i katit të parë automatikisht
-  const [selectedFloor, setSelectedFloor] = useState(1);
-
-  // Heq funksionet për shtim dhe riemërim
-  // Nëse don me i hequr butonat edhe nga FloorTabs, 
-  // përdor versionin e FloorTabs që të kam dhënë pa onAdd dhe onRename
+  const handleManageSpace = (buildingId) => {
+    navigate('/kati');
+  };
 
   return (
-    <div className="min-h-screen bg-gray-300 p-6">
-      <div className="max-w-5xl mx-auto space-y-6">
-        <header className="flex items-center justify-between bg-slate-800/60 backdrop-blur-md rounded-2xl p-4 shadow-md border border-slate-700/30">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-cyan-400 flex items-center justify-center text-lg">
-              🏢
-            </div>
-            <div>
-              <h1 className="text-lg font-semibold">Menaxhimi i Ndërtesës</h1>
-              <p className="text-sm text-slate-400">Lista e kateve dhe editor</p>
-            </div>
-          </div>
+    <div style={{
+      minHeight: "100vh",
+      padding: "20px",
+      backgroundColor: "#f8fafc",
+      background: "linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)",
+    }}>
+      <div style={{
+        maxWidth: "1200px",
+        margin: "0 auto",
+      }}>
+        {/* HEADER */}
+       
+        {/* LISTA E NDËRTESAVE */}
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(350px, 1fr))",
+          gap: "20px",
+        }}>
+          {buildings.map((building) => (
+            <div
+              key={building.id}
+              onClick={() => handleManageSpace(building.id)}
+              style={{
+                background: "linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%)",
+                borderRadius: "16px",
+                padding: "24px",
+                color: "white",
+                cursor: "pointer",
+                border: "1px solid rgba(255,255,255,0.2)",
+                boxShadow: "0 8px 25px rgba(14, 165, 233, 0.2)",
+                transition: "all 0.3s ease",
+                backdropFilter: "blur(10px)",
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.transform = "translateY(-5px)";
+                e.target.style.boxShadow = "0 15px 35px rgba(14, 165, 233, 0.4)";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.transform = "translateY(0)";
+                e.target.style.boxShadow = "0 8px 25px rgba(14, 165, 233, 0.2)";
+              }}
+            >
+              <div style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "15px",
+                marginBottom: "15px"
+              }}>
+                <div style={{
+                  width: "50px",
+                  height: "50px",
+                  borderRadius: "12px",
+                  background: "rgba(255,255,255,0.2)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: "20px",
+                }}>
+                  🏢
+                </div>
+                <div>
+                  <h3 style={{
+                    margin: 0,
+                    fontSize: "20px",
+                    fontWeight: "700"
+                  }}>
+                    {building.name}
+                  </h3>
+                  <p style={{
+                    margin: 0,
+                    fontSize: "14px",
+                    opacity: 0.9
+                  }}>
+                    {building.address}
+                  </p>
+                </div>
+              </div>
 
-          <FloorTabs
-            floors={floors}
-            selected={selectedFloor}
-            onSelect={setSelectedFloor}
-            // Hiq onAdd dhe onRename nëse nuk dëshiron shtim/ndryshim
-          />
-        </header>
+              <div style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                fontSize: "14px",
+                opacity: 0.9
+              }}>
+                <span>🎯 {building.floors} Kate</span>
+                <span>📍 ID: {building.id}</span>
+              </div>
 
-        <main>
-          <div className="bg-slate-800/60 rounded-2xl p-5 shadow-lg border border-slate-700/20 min-h-[420px]">
-            <FloorEditorWrapper key={selectedFloor} floorId={selectedFloor} />
-          </div>
-        </main>
+              <div style={{
+                marginTop: "15px",
+                padding: "10px",
+                background: "rgba(255,255,255,0.1)",
+                borderRadius: "8px",
+                fontSize: "12px",
+                textAlign: "center"
+              }}>
+                Kliko për të parë hapësirën
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
