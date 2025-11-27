@@ -2,6 +2,7 @@ import Website from './layouts/Website/index.jsx';
 import React, { Suspense, Fragment, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Admin from './layouts/Admin/index.jsx';
+import Auth from './layouts/Auth/index.jsx';
 import LoadingSpinner from './components/Loader/LoadingSpinner.jsx';
 
 export const RenderRoutes = (routes = []) => (
@@ -71,6 +72,10 @@ const routes = [
         path: 'home',
         element: lazy(() => import('./views/Website/home/index.jsx')),
       },
+       {
+        path: 'reserve',
+        element: lazy(() => import('./views/Website/Reserve/index.jsx')),
+      }
     ],
   },
     {
@@ -81,9 +86,25 @@ const routes = [
         path: 'home',
         element: lazy(() => import('./views/Admin/home/index.jsx')),
       },
+       {
+        path: 'reserve',
+        element: lazy(() => import('./views/Admin/Reserve/index.jsx')),
+      },
+     ],
+  },
+   {
+    path: '/',
+    layout: Auth,  // ky Layout ka Outlet
+    children: [
+      {
+        path: 'login',
+        element: lazy(() => import('./views/Website/login/index.jsx')),
+      },
+    
      ],
   },
 ];
+
 
 
 export default routes;
