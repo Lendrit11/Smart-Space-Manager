@@ -17,7 +17,6 @@ namespace SmartSpaceManager.Domain.model
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
         public ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
-        public ICollection<StudyPreference> StudyPreferences { get; set; } = new List<StudyPreference>();
         public ICollection<Reservation> Reservations { get; set; } = new List<Reservation>();
         public ICollection<ActivityLog> ActivityLogs { get; set; } = new List<ActivityLog>();
     }
