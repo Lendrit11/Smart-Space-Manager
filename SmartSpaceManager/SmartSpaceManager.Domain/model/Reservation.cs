@@ -12,15 +12,15 @@ namespace SmartSpaceManager.Domain.model
     {
         public int Id { get; set; }
         public int UserId { get; set; }
-        public int RoomId { get; set; }
-        public DateOnly Date { get; set; } // .NET 6+; otherwise use DateTime with .Date
+        public int FloorId { get; set; }
+        public DateTime Date { get; set; }
         public int TimeSlotId { get; set; }
-        public ReservationStatus Status { get; set; } = ReservationStatus.Pending;
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
+        public string Status { get; set; } = "pending";
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
 
-        public User? User { get; set; }
-        public Room? Room { get; set; }
-        public TimeSlot? TimeSlot { get; set; }
+        public User User { get; set; }
+        public Floor Floor { get; set; }
+        public TimeSlot TimeSlot { get; set; }
     }
 }
