@@ -72,6 +72,10 @@ const routes = [
         path: 'home',
         element: lazy(() => import('./views/Website/home/index.jsx')),
       },
+      {
+        path: 'kati',
+        element: lazy(() => import('./views/Website/kati/index.jsx')),
+      },
        {
         path: 'reserve',
         element: lazy(() => import('./views/Website/Reserve/index.jsx')),
@@ -82,6 +86,7 @@ const routes = [
     path: '/admin/',
     layout: Admin,  // ky Layout ka Outlet
     children: [
+     
       {
         path: 'home',
         element: lazy(() => import('./views/Admin/home/index.jsx')),
@@ -90,6 +95,10 @@ const routes = [
         path: 'reserve',
         element: lazy(() => import('./views/Admin/Reserve/index.jsx')),
       },
+       {
+        path: 'edit',
+        element: lazy(() => import('./views/Admin/Editor/index.jsx')),
+      }, 
      ],
   },
    {
@@ -100,7 +109,10 @@ const routes = [
         path: 'login',
         element: lazy(() => import('./views/Website/login/index.jsx')),
       },
-    
+     {
+        path: 'admin/login',
+        element: lazy(() => import('./views/Admin/login/index.jsx')),
+      },
      ],
   },
 ];
