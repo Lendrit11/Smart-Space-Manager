@@ -1,9 +1,0 @@
-/* Për Firefox */
-* {
-    scrollbar-width: none;
-}
-
-/* Për Chrome, Edge, Safari */
-*::-webkit-scrollbar {
-    display: none;
-}
