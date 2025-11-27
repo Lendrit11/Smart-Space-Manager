@@ -1,6 +1,6 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import Navbar from '../../components/Admin/Nav-bar/index.jsx';
+import Navbar from '../../components/Website/Nav-bar/index.jsx';
 import Footer from '../../components/Admin/footer/index.jsx';
 const Website = () => {
   return (
@@ -9,7 +9,6 @@ const Website = () => {
       <main className="flex-grow">
         <Outlet />
       </main>
-      <Footer />
     </div>
   );
 };
