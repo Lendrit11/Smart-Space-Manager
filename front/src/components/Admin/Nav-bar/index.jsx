@@ -54,7 +54,58 @@ const AdminHeader = () => {
 
 
 
-    
+      {/* Sidebar NGA E MAJTA */}
+      <div
+        className={`fixed top-0 left-0 h-full w-64  shadow-lg z-50 transform transition-transform duration-300 ease-in-out
+          ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}
+        `}
+        style={{
+          backgroundColor:'#1E3A8A',
+          transitionProperty: 'transform, opacity',
+          opacity: isSidebarOpen ? 1 : 0.9,
+        }}
+      >
+        <div className="p-6 relative text-white flex flex-col h-full">
+          {/* Butoni për mbyllje */}
+          <button
+            onClick={toggleSidebar}
+            className="absolute top-4 right-4 text-2xl text-white  transition"
+            aria-label="Mbyll Sidebar"
+          >
+            <FiX />
+          </button>
+
+          <h2 className="text-2xl font-bold mb-8 border-b border-gray-200 pb-2">Smart Space Manager</h2>
+<ul className="flex-grow overflow-y-auto space-y-5 pr-2">
+  {categories.map((cat) => (
+    <li key={cat.name}>
+      <NavLink
+        to={cat.path}
+        className={({ isActive }) =>
+          `flex items-center space-x-3 px-3 py-2 rounded-md transition 
+          ${isActive ? 'bg-white text-blue-600 font-semibold' : 'text-gray-200 hover:bg-blue-700'}`
+        }
+      >
+        <span className="text-lg">{cat.icon}</span>
+        <span className="font-medium">{cat.name}</span>
+      </NavLink>
+    </li>
+  ))}
+</ul>
+
+          <div className="mt-auto text-center text-gray-200 text-xs pt-6 border-t border-gray-200">
+            © {new Date().getFullYear()} Techful
+          </div>
+        </div>
+      </div>
+
+      {/* Overlay */}
+      {isSidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-30 z-40"
+          onClick={toggleSidebar}
+        ></div>
+      )}
     </>
   );
 };
