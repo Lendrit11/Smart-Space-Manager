@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FiMenu, FiX, FiUser, FiHome, FiTrendingUp, FiTag, FiBell } from 'react-icons/fi';
 import './navbar.css'; // Tailwind CSS duhet të jetë i importuar
-
+import { NavLink } from 'react-router-dom';
 const AdminHeader = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isScrollable, setIsScrollable] = useState(false);
@@ -24,18 +24,16 @@ const AdminHeader = () => {
   }, []);
 
   // Kategoritë e lajmeve me ikonat përkatëse
-  const categories = [
-    { name: 'Lajme Lokale', icon: <FiHome /> },
-    { name: 'Tregu & Biznes', icon: <FiTrendingUp /> },
-    { name: 'Politikë', icon: <FiTag /> },
-    { name: 'Teknologji', icon: <FiBell /> },
-    // Shto më shumë kategori sipas nevojës
-  ];
+ const categories = [
+  { name: 'Home', icon: <FiHome />, path: "/home" },
+  { name: 'Rezervimet', icon: <FiTag />, path: "/reserve" },
+];
+
 
   return (
     <>
       {/* Navbar i parë */}
-      <nav className="bg-indigo-600 shadow px-6 py-4 flex items-center justify-between relative">
+      <nav className=" shadow px-6 py-4 flex items-center justify-between relative" style={{backgroundColor:'#008CFF'}} >
         <button
           onClick={toggleSidebar}
           className="text-2xl text-white hover:text-gray-400 transition"
@@ -45,21 +43,21 @@ const AdminHeader = () => {
         </button>
 
         <div className="text-xl font-semibold text-white absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 select-none">
-          AdminPanel
+          UserPanel
         </div>
 
         <div className="flex items-center space-x-3 cursor-pointer text-white hover:text-gray-400 transition">
-          <span className="font-bold">Profile</span>
           <FiUser className="text-2xl" />
         </div>
       </nav>
 
   
       <div
-        className={`fixed top-0 left-0 h-full w-64 bg-gray-900 shadow-lg z-50 transform transition-transform duration-300 ease-in-out
+        className={`fixed top-0 left-0 h-full w-64 shadow-lg z-50 transform transition-transform duration-300 ease-in-out
           ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}
         `}
         style={{
+          backgroundColor:'#008CFF',
           transitionProperty: 'transform, opacity',
           opacity: isSidebarOpen ? 1 : 0.9,
         }}
@@ -74,22 +72,25 @@ const AdminHeader = () => {
             <FiX />
           </button>
 
-          <h2 className="text-2xl font-bold mb-8 border-b border-gray-700 pb-2">Kategoritë e Lajmeve</h2>
-          <ul className="flex-grow overflow-y-auto space-y-5 pr-2">
-            {categories.map((cat) => (
-              <li key={cat.name}>
-                <a
-                  href="#"
-                  className="flex items-center space-x-3 text-gray-300 hover:text-blue-400 transition px-3 py-2 rounded-md hover:bg-gray-700"
-                >
-                  <span className="text-lg">{cat.icon}</span>
-                  <span className="font-medium">{cat.name}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
+          <h2 className="text-2xl font-bold mb-8 border-b border-gray-200 pb-2">Smart Space Manager</h2>
+<ul className="flex-grow overflow-y-auto space-y-5 pr-2">
+  {categories.map((cat) => (
+    <li key={cat.name}>
+      <NavLink
+        to={cat.path}
+        className={({ isActive }) =>
+          `flex items-center space-x-3 px-3 py-2 rounded-md transition 
+          ${isActive ? 'bg-white text-blue-600 font-semibold' : 'text-gray-200 hover:bg-blue-700'}`
+        }
+      >
+        <span className="text-lg">{cat.icon}</span>
+        <span className="font-medium">{cat.name}</span>
+      </NavLink>
+    </li>
+  ))}
+</ul>
 
-          <div className="mt-auto text-center text-gray-500 text-xs pt-6 border-t border-gray-700">
+          <div className="mt-auto text-center text-gray-100 text-xs pt-6 border-t border-gray-100">
             © {new Date().getFullYear()} Techful
           </div>
         </div>
