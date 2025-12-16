@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SmartSpaceManager.Domain.model;
 using SmartSpaceManager.Service.Services;
+
 namespace SmartSpaceManager.API.Controllers.module_user
 {
     [ApiController]

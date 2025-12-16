@@ -45,7 +45,6 @@ namespace SmartSpaceManager.Service.Services
             );
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
-
         public string GenerateRefreshToken()
         {
               var randomNumber = new byte[64];

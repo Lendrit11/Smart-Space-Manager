@@ -11,6 +11,7 @@ namespace SmartSpaceManager.DAL.Interfaces
     {
         Task<IEnumerable<User>> GetAllUsersAsync();
         Task<User> GetUserByIdAsync(int id);
+        Task<User> GetByEmailWithRolesAsync(string email);
         Task<User> GetByEmailAsync(string email);
         Task AddUserAsync(User user);
         Task UpdateUserAsync(User user);
