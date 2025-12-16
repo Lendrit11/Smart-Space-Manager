@@ -61,7 +61,12 @@ builder.Services.AddScoped<IBuildingRepository, BuildingRepository>();
 builder.Services.AddScoped<FloorService>();
 builder.Services.AddScoped<IFloorRepository, FloorRepository>();
 
+// ===== Desk / Seat Services =====
+builder.Services.AddScoped<IDeskService, DeskService>();
+builder.Services.AddScoped<ISeatService, SeatService>();
 
+builder.Services.AddScoped<IDeskRepository, DeskRepository>();
+builder.Services.AddScoped<ISeatRepository, SeatRepository>();
 
 // Register DbContext with SQL Server provider
 builder.Services.AddDbContext<AppDbContext>(options =>
