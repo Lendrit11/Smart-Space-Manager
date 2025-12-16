@@ -13,7 +13,8 @@ namespace SmartSpaceManager.Domain.model
         public string? Name { get; set; }
         public int PositionX { get; set; }
         public int PositionY { get; set; }
-
+        public int reservationId { get; set; }
+        public Reservation? Reservation { get; set; }
         public Desk Desk { get; set; }
     }
 }

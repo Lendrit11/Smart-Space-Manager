@@ -12,15 +12,15 @@ namespace SmartSpaceManager.Domain.model
     {
         public int Id { get; set; }
         public int UserId { get; set; }
-        public int FloorId { get; set; }
         public DateTime Date { get; set; }
         public int TimeSlotId { get; set; }
         public string Status { get; set; } = "pending";
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
 
+        public ICollection<Seat> seats { get; set; } = new List<Seat>();
+
         public User User { get; set; }
-        public Floor Floor { get; set; }
         public TimeSlot TimeSlot { get; set; }
     }
 }

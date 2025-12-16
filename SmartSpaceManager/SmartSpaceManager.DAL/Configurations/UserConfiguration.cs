@@ -12,7 +12,7 @@ namespace SmartSpaceManager.DAL.Configurations
 
             builder.HasKey(u => u.Id);
 
-            builder.Property(u => u.Username)
+            builder.Property(u => u.FirstName)
                 .IsRequired()
                 .HasMaxLength(50);
 
@@ -24,8 +24,16 @@ namespace SmartSpaceManager.DAL.Configurations
                 .IsRequired()
                 .HasMaxLength(255);
 
-            builder.Property(u => u.FullName)
+            builder.Property(u => u.LastName)
                 .HasMaxLength(100);
+
+            builder.Property(u => u.PhoneNumber)
+                .HasMaxLength(15);
+
+            builder.Property(u=> u.refreshToken)
+                .HasMaxLength(255);
+
+            builder.Property(u => u.refreshTokenExpiryTime);
 
             builder.Property(u => u.ProfilePhoto)
                 .HasMaxLength(255);

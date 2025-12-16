@@ -27,10 +27,7 @@ namespace SmartSpaceManager.DAL.Configurations
                 .HasForeignKey(r => r.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOne(r => r.Floor)
-                .WithMany(f => f.Reservations)
-                .HasForeignKey(r => r.FloorId)
-                .OnDelete(DeleteBehavior.Cascade);
+
 
             builder.HasOne(r => r.TimeSlot)
                 .WithMany(t => t.Reservations)

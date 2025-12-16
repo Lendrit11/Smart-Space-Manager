@@ -9,11 +9,14 @@ namespace SmartSpaceManager.Domain.model
     public class User
     {
         public int Id { get; set; }
-        public string Username { get; set; } = null!;
+        public string FirstName { get; set; } = null!;
         public string Email { get; set; } = null!;
         public string PasswordHash { get; set; } = null!;
-        public string? FullName { get; set; }
+        public string? LastName { get; set; }
         public string? ProfilePhoto { get; set; }
+        public string? PhoneNumber { get; set; }
+        public string?  refreshToken { get; set; } = null!;
+        public DateTime? refreshTokenExpiryTime { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
         public ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();

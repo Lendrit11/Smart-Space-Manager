@@ -22,6 +22,10 @@ namespace SmartSpaceManager.DAL.Configurations
                 .WithMany(d => d.Seats)
                 .HasForeignKey(s => s.DeskId)
                 .OnDelete(DeleteBehavior.Cascade);
+        builder.HasOne(r=>r.Reservation)
+                .WithMany(f=>f.seats)
+                .HasForeignKey(r=>r.reservationId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

@@ -27,11 +27,6 @@ namespace SmartSpaceManager.DAL.Configurations
                 .WithOne(d => d.Floor)
                 .HasForeignKey(d => d.FloorId)
                 .OnDelete(DeleteBehavior.Cascade);
-
-            builder.HasMany(f => f.Reservations)
-                .WithOne(r => r.Floor)
-                .HasForeignKey(r => r.FloorId)
-                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
