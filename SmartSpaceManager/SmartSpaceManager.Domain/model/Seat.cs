@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace SmartSpaceManager.Domain.model
@@ -13,7 +14,7 @@ namespace SmartSpaceManager.Domain.model
         public string? Name { get; set; }
         public int PositionX { get; set; }
         public int PositionY { get; set; }
-        public int reservationId { get; set; }
+        public int? reservationId { get; set; }
         public Reservation? Reservation { get; set; }
         public Desk Desk { get; set; }
     }

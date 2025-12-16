@@ -1,0 +1,361 @@
+[
+  {
+    "ContainingType": "SmartSpaceManager.API.Controllers.module_building.BuildingController",
+    "Method": "Create",
+    "RelativePath": "api/building/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "building",
+        "Type": "SmartSpaceManager.Domain.model.Building",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartSpaceManager.API.Controllers.module_building.BuildingController",
+    "Method": "Delete",
+    "RelativePath": "api/building/delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartSpaceManager.API.Controllers.module_building.BuildingController",
+    "Method": "GetAll",
+    "RelativePath": "api/building/get-all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartSpaceManager.API.Controllers.module_desk.DeskController",
+    "Method": "GetByFloor",
+    "RelativePath": "api/desk/by-floor/{floorId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "floorId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartSpaceManager.API.Controllers.module_desk.DeskController",
+    "Method": "Create",
+    "RelativePath": "api/desk/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "deskDto",
+        "Type": "SmartSpaceManager.Service.Dtos.DeskDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartSpaceManager.API.Controllers.module_desk.DeskController",
+    "Method": "Delete",
+    "RelativePath": "api/desk/delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartSpaceManager.API.Controllers.module_desk.DeskController",
+    "Method": "Update",
+    "RelativePath": "api/desk/update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "deskDto",
+        "Type": "SmartSpaceManager.Service.Dtos.DeskDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartSpaceManager.API.Controllers.module_building.FloorController",
+    "Method": "GetByBuilding",
+    "RelativePath": "api/floor/by-building/{buildingId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "buildingId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartSpaceManager.API.Controllers.module_building.FloorController",
+    "Method": "Create",
+    "RelativePath": "api/floor/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "floor",
+        "Type": "SmartSpaceManager.Domain.model.Floor",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartSpaceManager.API.Controllers.module_building.FloorController",
+    "Method": "Delete",
+    "RelativePath": "api/floor/delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartSpaceManager.API.Controllers.module_user.RoleController",
+    "Method": "CreateRole",
+    "RelativePath": "api/role/createRole",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "role",
+        "Type": "SmartSpaceManager.Domain.model.Role",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartSpaceManager.API.Controllers.module_user.RoleController",
+    "Method": "DeleteRole",
+    "RelativePath": "api/role/deleteRole/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartSpaceManager.API.Controllers.module_user.RoleController",
+    "Method": "GetAll",
+    "RelativePath": "api/role/get-all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartSpaceManager.API.Controllers.module_desk.SeatController",
+    "Method": "GetByDesk",
+    "RelativePath": "api/seat/by-desk/{deskId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "deskId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartSpaceManager.API.Controllers.module_desk.SeatController",
+    "Method": "Create",
+    "RelativePath": "api/seat/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "seatDto",
+        "Type": "SmartSpaceManager.Service.Dtos.SeatsDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartSpaceManager.API.Controllers.module_desk.SeatController",
+    "Method": "Delete",
+    "RelativePath": "api/seat/delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartSpaceManager.API.Controllers.module_desk.SeatController",
+    "Method": "Update",
+    "RelativePath": "api/seat/update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "seatDto",
+        "Type": "SmartSpaceManager.Service.Dtos.SeatsDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartSpaceManager.API.Controllers.module_user.UserController",
+    "Method": "deleteUser",
+    "RelativePath": "api/user/deleteUser/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartSpaceManager.API.Controllers.module_user.UserController",
+    "Method": "GetAllUsers",
+    "RelativePath": "api/user/get-all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartSpaceManager.API.Controllers.module_user.UserController",
+    "Method": "getUser",
+    "RelativePath": "api/user/get/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartSpaceManager.API.Controllers.module_user.UserController",
+    "Method": "Login",
+    "RelativePath": "api/user/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "password",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartSpaceManager.API.Controllers.module_user.UserController",
+    "Method": "Register",
+    "RelativePath": "api/user/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "FirstName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "lastName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "phonenumber",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "password",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
