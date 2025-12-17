@@ -11,7 +11,8 @@ namespace SmartSpaceManager.DAL.Configurations
             builder.ToTable("TimeSlots");
 
             builder.HasKey(t => t.Id);
-
+            builder.Property(r => r.Status)
+       .HasDefaultValue(TimeSlotStatus.Active);
             builder.Property(t => t.StartTime).IsRequired();
             builder.Property(t => t.EndTime).IsRequired();
             builder.Property(t => t.Description).HasMaxLength(100);

@@ -47,6 +47,10 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
+builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
+builder.Services.AddScoped<ReservationService>();
+builder.Services.AddScoped<ITimeSlotRepository, TimeSlotRepository>();
+
 
 // ===== User / Token Services =====
 builder.Services.AddScoped<ITokenService, TokenService>();

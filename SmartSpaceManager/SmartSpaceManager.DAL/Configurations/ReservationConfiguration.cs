@@ -13,8 +13,8 @@ namespace SmartSpaceManager.DAL.Configurations
             builder.HasKey(r => r.Id);
 
             builder.Property(r => r.Status)
-                .HasMaxLength(20)
-                .HasDefaultValue("pending");
+         .HasDefaultValue(ReservationStatus.Active);
+
 
             builder.Property(r => r.CreatedAt)
                 .HasDefaultValueSql("GETDATE()");

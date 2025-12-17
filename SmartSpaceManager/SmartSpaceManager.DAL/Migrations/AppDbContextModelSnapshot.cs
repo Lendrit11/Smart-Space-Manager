@@ -174,12 +174,10 @@ namespace SmartSpaceManager.DAL.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Status")
-                        .IsRequired()
+                    b.Property<int>("Status")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
-                        .HasDefaultValue("pending");
+                        .HasColumnType("int")
+                        .HasDefaultValue(1);
 
                     b.Property<int>("TimeSlotId")
                         .HasColumnType("int");
@@ -273,6 +271,11 @@ namespace SmartSpaceManager.DAL.Migrations
 
                     b.Property<TimeSpan>("StartTime")
                         .HasColumnType("time");
+
+                    b.Property<int>("Status")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0);
 
                     b.HasKey("Id");
 

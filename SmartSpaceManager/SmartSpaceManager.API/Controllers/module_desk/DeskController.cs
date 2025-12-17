@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using SmartSpaceManager.Domain.model;
 using SmartSpaceManager.Service.Dtos;
 using SmartSpaceManager.Service.Interface;
+using SmartSpaceManager.Service.Services;
+using System.Security.Claims;
 
 namespace SmartSpaceManager.API.Controllers.module_desk
 {
@@ -12,13 +14,26 @@ namespace SmartSpaceManager.API.Controllers.module_desk
     public class DeskController : ControllerBase
     {
         private readonly IDeskService _service;
+        private readonly ActivityLogService _activityLogService;
 
-        public DeskController(IDeskService service)
+        public DeskController(IDeskService service, ActivityLogService activityLogService)
         {
             _service = service;
+            _activityLogService = activityLogService;
+        }
+        private int GetUserIdFromToken()
+        {
+            // Marrim Claim-in "sub" ose "id" nga tokeni
+            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
+            if (userIdClaim == null)
+                throw new Exception("UserId not found in token.");
+
+            return int.Parse(userIdClaim.Value);
         }
 
+
         [HttpGet("by-floor/{floorId}")]
+        [Authorize]
         public async Task<IActionResult> GetByFloor(int floorId)
         {
             var desks = await _service.GetDesksByFloor(floorId);
@@ -50,6 +65,8 @@ namespace SmartSpaceManager.API.Controllers.module_desk
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create(DeskDto deskDto)
         {
+            var userId = GetUserIdFromToken();
+            await _activityLogService.LogAsync(userId, $"Created Desk = {deskDto.Id} from admin {userId}");
             await _service.AddDesk(deskDto);
             return Ok();
         }
@@ -58,6 +75,8 @@ namespace SmartSpaceManager.API.Controllers.module_desk
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(DeskDto deskDto)
         {
+            var userId = GetUserIdFromToken();
+            await _activityLogService.LogAsync(userId, $"updated Desk{deskDto.Id} from admin {userId}");
             await _service.UpdateDesk(deskDto);
             return Ok();
         }
@@ -66,6 +85,8 @@ namespace SmartSpaceManager.API.Controllers.module_desk
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
+            var userId = GetUserIdFromToken();
+            await _activityLogService.LogAsync(userId, $"deleted Desk = {id} from admin {userId}");
             await _service.DeleteDesk(id);
             return Ok();
         }

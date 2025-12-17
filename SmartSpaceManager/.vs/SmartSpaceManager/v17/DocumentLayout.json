@@ -1,52 +1,7 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\lendr\\OneDrive\\Desktop\\SmartSpaceManager\\SmartSpaceManager\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{2D732BC0-17D3-4167-B6DD-F91CEE22E82A}|SmartSpaceManager.API\\SmartSpaceManager.API.csproj|c:\\users\\lendr\\onedrive\\desktop\\smartspacemanager\\smartspacemanager\\smartspacemanager.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D732BC0-17D3-4167-B6DD-F91CEE22E82A}|SmartSpaceManager.API\\SmartSpaceManager.API.csproj|solutionrelative:smartspacemanager.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{32B7B4BE-608F-47F0-B020-3C4E1F6613FF}|SmartSpaceManager.Service\\SmartSpaceManager.Service.csproj|c:\\users\\lendr\\onedrive\\desktop\\smartspacemanager\\smartspacemanager\\smartspacemanager.service\\services\\seatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{32B7B4BE-608F-47F0-B020-3C4E1F6613FF}|SmartSpaceManager.Service\\SmartSpaceManager.Service.csproj|solutionrelative:smartspacemanager.service\\services\\seatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{32B7B4BE-608F-47F0-B020-3C4E1F6613FF}|SmartSpaceManager.Service\\SmartSpaceManager.Service.csproj|c:\\users\\lendr\\onedrive\\desktop\\smartspacemanager\\smartspacemanager\\smartspacemanager.service\\services\\floorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{32B7B4BE-608F-47F0-B020-3C4E1F6613FF}|SmartSpaceManager.Service\\SmartSpaceManager.Service.csproj|solutionrelative:smartspacemanager.service\\services\\floorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{32B7B4BE-608F-47F0-B020-3C4E1F6613FF}|SmartSpaceManager.Service\\SmartSpaceManager.Service.csproj|c:\\users\\lendr\\onedrive\\desktop\\smartspacemanager\\smartspacemanager\\smartspacemanager.service\\services\\deskservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{32B7B4BE-608F-47F0-B020-3C4E1F6613FF}|SmartSpaceManager.Service\\SmartSpaceManager.Service.csproj|solutionrelative:smartspacemanager.service\\services\\deskservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{32B7B4BE-608F-47F0-B020-3C4E1F6613FF}|SmartSpaceManager.Service\\SmartSpaceManager.Service.csproj|c:\\users\\lendr\\onedrive\\desktop\\smartspacemanager\\smartspacemanager\\smartspacemanager.service\\dtos\\seatsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{32B7B4BE-608F-47F0-B020-3C4E1F6613FF}|SmartSpaceManager.Service\\SmartSpaceManager.Service.csproj|solutionrelative:smartspacemanager.service\\dtos\\seatsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2D732BC0-17D3-4167-B6DD-F91CEE22E82A}|SmartSpaceManager.API\\SmartSpaceManager.API.csproj|c:\\users\\lendr\\onedrive\\desktop\\smartspacemanager\\smartspacemanager\\smartspacemanager.api\\controllers\\module_desk\\seatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D732BC0-17D3-4167-B6DD-F91CEE22E82A}|SmartSpaceManager.API\\SmartSpaceManager.API.csproj|solutionrelative:smartspacemanager.api\\controllers\\module_desk\\seatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CB96544D-FA14-4593-BF08-22DB72F4EE99}|SmartSpaceManager.Domain\\SmartSpaceManager.Domain.csproj|c:\\users\\lendr\\onedrive\\desktop\\smartspacemanager\\smartspacemanager\\smartspacemanager.domain\\model\\seat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CB96544D-FA14-4593-BF08-22DB72F4EE99}|SmartSpaceManager.Domain\\SmartSpaceManager.Domain.csproj|solutionrelative:smartspacemanager.domain\\model\\seat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{32B7B4BE-608F-47F0-B020-3C4E1F6613FF}|SmartSpaceManager.Service\\SmartSpaceManager.Service.csproj|c:\\users\\lendr\\onedrive\\desktop\\smartspacemanager\\smartspacemanager\\smartspacemanager.service\\dtos\\deskdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{32B7B4BE-608F-47F0-B020-3C4E1F6613FF}|SmartSpaceManager.Service\\SmartSpaceManager.Service.csproj|solutionrelative:smartspacemanager.service\\dtos\\deskdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{32B7B4BE-608F-47F0-B020-3C4E1F6613FF}|SmartSpaceManager.Service\\SmartSpaceManager.Service.csproj|c:\\users\\lendr\\onedrive\\desktop\\smartspacemanager\\smartspacemanager\\smartspacemanager.service\\interface\\iseatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{32B7B4BE-608F-47F0-B020-3C4E1F6613FF}|SmartSpaceManager.Service\\SmartSpaceManager.Service.csproj|solutionrelative:smartspacemanager.service\\interface\\iseatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CB96544D-FA14-4593-BF08-22DB72F4EE99}|SmartSpaceManager.Domain\\SmartSpaceManager.Domain.csproj|c:\\users\\lendr\\onedrive\\desktop\\smartspacemanager\\smartspacemanager\\smartspacemanager.domain\\model\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CB96544D-FA14-4593-BF08-22DB72F4EE99}|SmartSpaceManager.Domain\\SmartSpaceManager.Domain.csproj|solutionrelative:smartspacemanager.domain\\model\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CB96544D-FA14-4593-BF08-22DB72F4EE99}|SmartSpaceManager.Domain\\SmartSpaceManager.Domain.csproj|c:\\users\\lendr\\onedrive\\desktop\\smartspacemanager\\smartspacemanager\\smartspacemanager.domain\\model\\desk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CB96544D-FA14-4593-BF08-22DB72F4EE99}|SmartSpaceManager.Domain\\SmartSpaceManager.Domain.csproj|solutionrelative:smartspacemanager.domain\\model\\desk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "WorkspaceRootPath": "C:\\Users\\Jahir\\Desktop\\smartServer\\Smart-Space-Manager\\SmartSpaceManager\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 1,
@@ -54,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 383,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -69,148 +24,8 @@
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\lendr\\OneDrive\\Desktop\\SmartSpaceManager\\SmartSpaceManager\\SmartSpaceManager.API\\Program.cs",
-              "RelativeDocumentMoniker": "SmartSpaceManager.API\\Program.cs",
-              "ToolTip": "C:\\Users\\lendr\\OneDrive\\Desktop\\SmartSpaceManager\\SmartSpaceManager\\SmartSpaceManager.API\\Program.cs",
-              "RelativeToolTip": "SmartSpaceManager.API\\Program.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAAAADsAAABGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-16T22:32:48.46Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FloorService.cs",
-              "DocumentMoniker": "C:\\Users\\lendr\\OneDrive\\Desktop\\SmartSpaceManager\\SmartSpaceManager\\SmartSpaceManager.Service\\Services\\FloorService.cs",
-              "RelativeDocumentMoniker": "SmartSpaceManager.Service\\Services\\FloorService.cs",
-              "ToolTip": "C:\\Users\\lendr\\OneDrive\\Desktop\\SmartSpaceManager\\SmartSpaceManager\\SmartSpaceManager.Service\\Services\\FloorService.cs",
-              "RelativeToolTip": "SmartSpaceManager.Service\\Services\\FloorService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-16T17:09:37.647Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DeskService.cs",
-              "DocumentMoniker": "C:\\Users\\lendr\\OneDrive\\Desktop\\SmartSpaceManager\\SmartSpaceManager\\SmartSpaceManager.Service\\Services\\DeskService.cs",
-              "RelativeDocumentMoniker": "SmartSpaceManager.Service\\Services\\DeskService.cs",
-              "ToolTip": "C:\\Users\\lendr\\OneDrive\\Desktop\\SmartSpaceManager\\SmartSpaceManager\\SmartSpaceManager.Service\\Services\\DeskService.cs",
-              "RelativeToolTip": "SmartSpaceManager.Service\\Services\\DeskService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-16T17:02:04.427Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SeatsDto.cs",
-              "DocumentMoniker": "C:\\Users\\lendr\\OneDrive\\Desktop\\SmartSpaceManager\\SmartSpaceManager\\SmartSpaceManager.Service\\Dtos\\SeatsDto.cs",
-              "RelativeDocumentMoniker": "SmartSpaceManager.Service\\Dtos\\SeatsDto.cs",
-              "ToolTip": "C:\\Users\\lendr\\OneDrive\\Desktop\\SmartSpaceManager\\SmartSpaceManager\\SmartSpaceManager.Service\\Dtos\\SeatsDto.cs",
-              "RelativeToolTip": "SmartSpaceManager.Service\\Dtos\\SeatsDto.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-16T16:38:48.219Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "DeskDto.cs",
-              "DocumentMoniker": "C:\\Users\\lendr\\OneDrive\\Desktop\\SmartSpaceManager\\SmartSpaceManager\\SmartSpaceManager.Service\\Dtos\\DeskDto.cs",
-              "RelativeDocumentMoniker": "SmartSpaceManager.Service\\Dtos\\DeskDto.cs",
-              "ToolTip": "C:\\Users\\lendr\\OneDrive\\Desktop\\SmartSpaceManager\\SmartSpaceManager\\SmartSpaceManager.Service\\Dtos\\DeskDto.cs",
-              "RelativeToolTip": "SmartSpaceManager.Service\\Dtos\\DeskDto.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-16T16:37:59.654Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Reservation.cs",
-              "DocumentMoniker": "C:\\Users\\lendr\\OneDrive\\Desktop\\SmartSpaceManager\\SmartSpaceManager\\SmartSpaceManager.Domain\\model\\Reservation.cs",
-              "RelativeDocumentMoniker": "SmartSpaceManager.Domain\\model\\Reservation.cs",
-              "ToolTip": "C:\\Users\\lendr\\OneDrive\\Desktop\\SmartSpaceManager\\SmartSpaceManager\\SmartSpaceManager.Domain\\model\\Reservation.cs",
-              "RelativeToolTip": "SmartSpaceManager.Domain\\model\\Reservation.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-16T16:35:14.007Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Desk.cs",
-              "DocumentMoniker": "C:\\Users\\lendr\\OneDrive\\Desktop\\SmartSpaceManager\\SmartSpaceManager\\SmartSpaceManager.Domain\\model\\Desk.cs",
-              "RelativeDocumentMoniker": "SmartSpaceManager.Domain\\model\\Desk.cs",
-              "ToolTip": "C:\\Users\\lendr\\OneDrive\\Desktop\\SmartSpaceManager\\SmartSpaceManager\\SmartSpaceManager.Domain\\model\\Desk.cs",
-              "RelativeToolTip": "SmartSpaceManager.Domain\\model\\Desk.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-16T16:35:00.344Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Seat.cs",
-              "DocumentMoniker": "C:\\Users\\lendr\\OneDrive\\Desktop\\SmartSpaceManager\\SmartSpaceManager\\SmartSpaceManager.Domain\\model\\Seat.cs",
-              "RelativeDocumentMoniker": "SmartSpaceManager.Domain\\model\\Seat.cs",
-              "ToolTip": "C:\\Users\\lendr\\OneDrive\\Desktop\\SmartSpaceManager\\SmartSpaceManager\\SmartSpaceManager.Domain\\model\\Seat.cs",
-              "RelativeToolTip": "SmartSpaceManager.Domain\\model\\Seat.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAgwBAAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-16T16:34:44.691Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "SeatController.cs",
-              "DocumentMoniker": "C:\\Users\\lendr\\OneDrive\\Desktop\\SmartSpaceManager\\SmartSpaceManager\\SmartSpaceManager.API\\Controllers\\module_desk\\SeatController.cs",
-              "RelativeDocumentMoniker": "SmartSpaceManager.API\\Controllers\\module_desk\\SeatController.cs",
-              "ToolTip": "C:\\Users\\lendr\\OneDrive\\Desktop\\SmartSpaceManager\\SmartSpaceManager\\SmartSpaceManager.API\\Controllers\\module_desk\\SeatController.cs",
-              "RelativeToolTip": "SmartSpaceManager.API\\Controllers\\module_desk\\SeatController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-16T16:34:15.808Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SeatService.cs",
-              "DocumentMoniker": "C:\\Users\\lendr\\OneDrive\\Desktop\\SmartSpaceManager\\SmartSpaceManager\\SmartSpaceManager.Service\\Services\\SeatService.cs",
-              "RelativeDocumentMoniker": "SmartSpaceManager.Service\\Services\\SeatService.cs",
-              "ToolTip": "C:\\Users\\lendr\\OneDrive\\Desktop\\SmartSpaceManager\\SmartSpaceManager\\SmartSpaceManager.Service\\Services\\SeatService.cs",
-              "RelativeToolTip": "SmartSpaceManager.Service\\Services\\SeatService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADcAAABNAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-16T16:33:50.527Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ISeatService.cs",
-              "DocumentMoniker": "C:\\Users\\lendr\\OneDrive\\Desktop\\SmartSpaceManager\\SmartSpaceManager\\SmartSpaceManager.Service\\Interface\\ISeatService.cs",
-              "RelativeDocumentMoniker": "SmartSpaceManager.Service\\Interface\\ISeatService.cs",
-              "ToolTip": "C:\\Users\\lendr\\OneDrive\\Desktop\\SmartSpaceManager\\SmartSpaceManager\\SmartSpaceManager.Service\\Interface\\ISeatService.cs",
-              "RelativeToolTip": "SmartSpaceManager.Service\\Interface\\ISeatService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-16T16:33:31.023Z"
-            }
-          ]
-        },
-        {
-          "DockedHeight": 17,
-          "SelectedChildIndex": -1,
-          "Children": [
-            {
               "$type": "Bookmark",
-              "Name": "ST:5:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             }
           ]
         }

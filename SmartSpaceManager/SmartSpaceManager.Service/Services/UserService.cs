@@ -85,6 +85,55 @@ namespace SmartSpaceManager.Service.Services
             return (accessToken, refreshToken);
         }
 
+
+        public async Task<(string accessToken, string refreshToken)> RegisterAsyncAdmin(
+    string lastname, string number, string email, string firstName, string password)
+        {
+            // Kontrollo nëse user ekziston
+            var existingUser = await _userRepository.GetByEmailAsync(email);
+            if (existingUser != null)
+                throw new Exception("User with this email already exists.");
+
+            // Hash password
+            var hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
+
+            var newUser = new User
+            {
+                FirstName = firstName,
+                LastName = lastname,
+                PhoneNumber = number,
+                Email = email,
+                PasswordHash = hashedPassword,
+                CreatedAt = DateTime.UtcNow,
+                UserRoles = new List<UserRole>()
+            };
+
+            // Kontrollo ose krijo rolin "User"
+            var role = await _roleRepository.GetByNameAsync("Admin");
+            if (role == null)
+            {
+                role = new Role { Name = "Admin" };
+                await _roleRepository.AddRoleAsync(role);
+            }
+
+            // Lidh user me role
+            newUser.UserRoles.Add(new UserRole { Role = role });
+
+            // Shto user në DB
+            await _userRepository.AddUserAsync(newUser);
+
+            // Gjenero tokena
+            var accessToken = _tokenService.GenerateAccessToken(newUser);
+            var refreshToken = _tokenService.GenerateRefreshToken();
+
+            newUser.refreshToken = refreshToken;
+            newUser.refreshTokenExpiryTime = DateTime.UtcNow.AddDays(7);
+
+            await _userRepository.UpdateUserAsync(newUser);
+
+            return (accessToken, refreshToken);
+        }
+
         // ================= Login =================
         public async Task<(string accessToken, string refreshToken, bool isAdmin)> LoginAsync(string email, string password)
         {
