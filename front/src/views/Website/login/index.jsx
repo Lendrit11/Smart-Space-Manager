@@ -1,22 +1,89 @@
 import React, { useState } from "react";
 
-function Login() {
+function Auth() {
+  const [isRegister, setIsRegister] = useState(false);
+
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handleLogin = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // këtu vendos logjikën e autentikimit
-    alert(`Email: ${email}\nPassword: ${password}`);
+
+    try {
+      if (isRegister) {
+        if (password !== confirmPassword) {
+          alert("Password-at nuk përputhen!");
+          return;
+        }
+
+        const res = await fetch(
+          `https://localhost:7218/api/user/register?` +
+            `FirstName=${encodeURIComponent(firstName)}&` +
+            `lastName=${encodeURIComponent(lastName)}&` +
+            `email=${encodeURIComponent(email)}&` +
+            `phonenumber=${encodeURIComponent(phoneNumber)}&` +
+            `password=${encodeURIComponent(password)}`,
+          {
+            method: "POST",
+            credentials: "include",
+          }
+        );
+
+        if (!res.ok) {
+          const text = await res.text();
+          alert(text);
+          return;
+        }
+
+        const data = await res.json();
+        localStorage.setItem("accessToken", data.accessToken);
+        alert("Register sukses");
+      } else {
+        const res = await fetch(
+          `https://localhost:7218/api/user/login?` +
+            `email=${encodeURIComponent(email)}&` +
+            `password=${encodeURIComponent(password)}`,
+          {
+            method: "POST",
+            credentials: "include",
+          }
+        );
+
+        if (!res.ok) {
+          const text = await res.text();
+          alert(text);
+          return;
+        }
+
+        const data = await res.json();
+        localStorage.setItem("accessToken", data.accessToken);
+        alert("Login sukses");
+      }
+    } catch (err) {
+      alert("Gabim me server");
+      console.error(err);
+    }
   };
 
   return (
     <div style={styles.container}>
       <div style={styles.card}>
-        <h2 style={styles.title}>Miresevini</h2>
-        <p style={styles.subtitle}>Identifikohu për të vazhduar</p>
+        <h2 style={styles.title}>
+          {isRegister ? "Krijo Llogari" : "Mirësevini"}
+        </h2>
 
-        <form onSubmit={handleLogin} style={styles.form}>
+        <p style={styles.subtitle}>
+          {isRegister
+            ? "Regjistrohu për të vazhduar"
+            : "Identifikohu për të vazhduar"}
+        </p>
+
+        <form onSubmit={handleSubmit} style={styles.form}>
           <input
             type="email"
             placeholder="Email"
@@ -25,6 +92,7 @@ function Login() {
             required
             style={styles.input}
           />
+
           <input
             type="password"
             placeholder="Password"
@@ -33,11 +101,62 @@ function Login() {
             required
             style={styles.input}
           />
-          <button type="submit" style={styles.button}>Login</button>
+
+          {isRegister && (
+            <>
+              <input
+                type="text"
+                placeholder="First Name"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                required
+                style={styles.input}
+              />
+
+              <input
+                type="text"
+                placeholder="Last Name"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                required
+                style={styles.input}
+              />
+
+              <input
+                type="text"
+                placeholder="Phone Number"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+                required
+                style={styles.input}
+              />
+
+              <input
+                type="password"
+                placeholder="Confirm Password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+                style={styles.input}
+              />
+            </>
+          )}
+
+          <button type="submit" style={styles.button}>
+            {isRegister ? "Register" : "Login"}
+          </button>
         </form>
 
         <div style={styles.footer}>
-          <a href="#" style={styles.link}>Forgot password?</a>
+          <span style={styles.text}>
+            {isRegister ? "Ke tashmë llogari?" : "Nuk ke llogari?"}
+          </span>
+          <button
+            onClick={() => setIsRegister(!isRegister)}
+            style={styles.link}
+          >
+            {isRegister ? "Login" : "Register"}
+          </button>
         </div>
       </div>
     </div>
@@ -61,14 +180,11 @@ const styles = {
     textAlign: "center",
   },
   title: {
-    margin: 0,
     marginBottom: 10,
     fontSize: 28,
     fontWeight: "bold",
-    color: "#333",
   },
   subtitle: {
-    margin: 0,
     marginBottom: 30,
     fontSize: 14,
     color: "#666",
@@ -83,8 +199,6 @@ const styles = {
     borderRadius: 8,
     border: "1px solid #ddd",
     fontSize: 14,
-    outline: "none",
-    transition: "all 0.2s",
   },
   button: {
     padding: "12px",
@@ -95,16 +209,22 @@ const styles = {
     fontWeight: "bold",
     fontSize: 16,
     cursor: "pointer",
-    transition: "all 0.2s",
   },
   footer: {
     marginTop: 20,
   },
-  link: {
+  text: {
     fontSize: 13,
+    marginRight: 5,
+  },
+  link: {
+    background: "none",
+    border: "none",
     color: "#6e8efb",
-    textDecoration: "none",
+    cursor: "pointer",
+    fontSize: 13,
+    fontWeight: "bold",
   },
 };
 
-export default Login;
+export default Auth;

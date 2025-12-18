@@ -46,6 +46,18 @@ builder.Services.AddSwaggerGen(c =>
         }
     });
 });
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("ReactCors", policy =>
+    {
+        policy.WithOrigins("http://localhost:5173") // porti ku është React
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials();
+    });
+});
+
+
 
 builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
 builder.Services.AddScoped<ReservationService>();
@@ -100,8 +112,9 @@ builder.Services.AddAuthentication(options =>
         RoleClaimType = ClaimTypes.Role
     };
 });
-
 var app = builder.Build();
+
+app.UseCors("ReactCors");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

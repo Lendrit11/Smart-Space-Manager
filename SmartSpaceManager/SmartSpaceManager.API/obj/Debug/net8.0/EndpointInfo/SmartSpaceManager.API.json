@@ -261,16 +261,6 @@
         "tags": [
           "Reservations"
         ],
-        "parameters": [
-          {
-            "name": "userId",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
         "requestBody": {
           "content": {
             "application/json": {

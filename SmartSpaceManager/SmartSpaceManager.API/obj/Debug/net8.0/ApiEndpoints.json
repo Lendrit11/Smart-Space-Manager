@@ -165,11 +165,6 @@
         "Name": "dto",
         "Type": "SmartSpaceManager.Service.Dtos.CreateReservationDto",
         "IsRequired": true
-      },
-      {
-        "Name": "userId",
-        "Type": "System.Int32",
-        "IsRequired": false
       }
     ],
     "ReturnTypes": []

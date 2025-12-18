@@ -1,7 +1,20 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Jahir\\Desktop\\smartServer\\Smart-Space-Manager\\SmartSpaceManager\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2D732BC0-17D3-4167-B6DD-F91CEE22E82A}|SmartSpaceManager.API\\SmartSpaceManager.API.csproj|c:\\users\\jahir\\desktop\\smartserver\\smart-space-manager\\smartspacemanager\\smartspacemanager.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D732BC0-17D3-4167-B6DD-F91CEE22E82A}|SmartSpaceManager.API\\SmartSpaceManager.API.csproj|solutionrelative:smartspacemanager.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D732BC0-17D3-4167-B6DD-F91CEE22E82A}|SmartSpaceManager.API\\SmartSpaceManager.API.csproj|c:\\users\\jahir\\desktop\\smartserver\\smart-space-manager\\smartspacemanager\\smartspacemanager.api\\controllers\\module_user\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D732BC0-17D3-4167-B6DD-F91CEE22E82A}|SmartSpaceManager.API\\SmartSpaceManager.API.csproj|solutionrelative:smartspacemanager.api\\controllers\\module_user\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32B7B4BE-608F-47F0-B020-3C4E1F6613FF}|SmartSpaceManager.Service\\SmartSpaceManager.Service.csproj|c:\\users\\jahir\\desktop\\smartserver\\smart-space-manager\\smartspacemanager\\smartspacemanager.service\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32B7B4BE-608F-47F0-B020-3C4E1F6613FF}|SmartSpaceManager.Service\\SmartSpaceManager.Service.csproj|solutionrelative:smartspacemanager.service\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 1,
@@ -9,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 383,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -24,8 +37,43 @@
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Jahir\\Desktop\\smartServer\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.API\\Program.cs",
+              "RelativeDocumentMoniker": "SmartSpaceManager.API\\Program.cs",
+              "ToolTip": "C:\\Users\\Jahir\\Desktop\\smartServer\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.API\\Program.cs",
+              "RelativeToolTip": "SmartSpaceManager.API\\Program.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAqwDcAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-18T14:50:36.033Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\Jahir\\Desktop\\smartServer\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.API\\Controllers\\module_user\\UserController.cs",
+              "RelativeDocumentMoniker": "SmartSpaceManager.API\\Controllers\\module_user\\UserController.cs",
+              "ToolTip": "C:\\Users\\Jahir\\Desktop\\smartServer\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.API\\Controllers\\module_user\\UserController.cs",
+              "RelativeToolTip": "SmartSpaceManager.API\\Controllers\\module_user\\UserController.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAowD0AAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-18T14:40:23.908Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\Jahir\\Desktop\\smartServer\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.Service\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "SmartSpaceManager.Service\\Services\\UserService.cs",
+              "ToolTip": "C:\\Users\\Jahir\\Desktop\\smartServer\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.Service\\Services\\UserService.cs",
+              "RelativeToolTip": "SmartSpaceManager.Service\\Services\\UserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-18T14:37:41.383Z",
+              "EditorCaption": ""
             }
           ]
         }
