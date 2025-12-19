@@ -41,7 +41,10 @@ function Auth() {
         }
 
         const data = await res.json();
-        localStorage.setItem("accessToken", data.accessToken);
+document.cookie = `accessToken=${data.accessToken}; path=/; secure; samesite=strict`;
+
+// Mund ta ruash edhe në localStorage për përdorim më të lehtë
+localStorage.setItem("accessToken", data.accessToken);
         alert("Register sukses");
       } else {
         const res = await fetch(
@@ -61,8 +64,10 @@ function Auth() {
         }
 
         const data = await res.json();
-        localStorage.setItem("accessToken", data.accessToken);
-        alert("Login sukses");
+document.cookie = `accessToken=${data.accessToken}; path=/; secure; samesite=strict`;
+
+// Mund ta ruash edhe në localStorage për përdorim më të lehtë
+localStorage.setItem("accessToken", data.accessToken);        alert("Login sukses");
       }
     } catch (err) {
       alert("Gabim me server");

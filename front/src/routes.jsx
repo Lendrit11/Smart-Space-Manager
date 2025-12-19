@@ -96,7 +96,7 @@ const routes = [
         element: lazy(() => import('./views/Admin/Reserve/index.jsx')),
       },
        {
-        path: 'edit',
+        path: 'edit/:id',
         element: lazy(() => import('./views/Admin/Editor/index.jsx')),
       }, 
      ],
