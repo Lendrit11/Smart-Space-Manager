@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SmartSpaceManager.Service")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3ab54a0805ee0736db91ba81961e074491789f96")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+524e650598660e6fc4b3dc41373e900ffdde4fa8")]
 [assembly: System.Reflection.AssemblyProductAttribute("SmartSpaceManager.Service")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SmartSpaceManager.Service")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

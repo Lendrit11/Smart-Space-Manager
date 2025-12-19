@@ -16,7 +16,7 @@ namespace SmartSpaceManager.Domain.model
         public int Width { get; set; } = 1000;
         public int Height { get; set; } = 1000;
         public float Scale { get; set; } = 1f;
-
+    
         public Building? Building { get; set; }
         public ICollection<Desk> Desks { get; set; }
     }

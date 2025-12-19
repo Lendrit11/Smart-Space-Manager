@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SmartSpaceManager.DAL.Interfaces;
 using SmartSpaceManager.Domain.model;
+using SmartSpaceManager.Service.Dtos;
 
 namespace SmartSpaceManager.Service.Services
 {
@@ -17,8 +18,17 @@ namespace SmartSpaceManager.Service.Services
             _repository = repository;
         }
 
-        public Task<IEnumerable<Building>> GetBuildings()
-            => _repository.GetAllAsync();
+        public async Task<IEnumerable<BuildingDto>> GetBuildings()
+        {
+            var buildings = await _repository.GetAllAsync();
+
+            // Map-o secilin Building në DTO
+            return buildings.Select(b => new BuildingDto
+            {
+                Id = b.Id,
+                Name = b.Name
+            });
+        }
 
         public Task<Building> GetBuilding(int id)
             => _repository.GetByIdAsync(id);

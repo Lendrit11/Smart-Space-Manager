@@ -57,7 +57,8 @@ builder.Services.AddCors(options =>
     });
 });
 
-
+builder.Services.AddScoped<IActivityLogRepository, ActivityLogRepository>();
+builder.Services.AddScoped<ActivityLogService>();
 
 builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
 builder.Services.AddScoped<ReservationService>();
@@ -83,6 +84,7 @@ builder.Services.AddScoped<ISeatService, SeatService>();
 
 builder.Services.AddScoped<IDeskRepository, DeskRepository>();
 builder.Services.AddScoped<ISeatRepository, SeatRepository>();
+
 
 // Register DbContext with SQL Server provider
 builder.Services.AddDbContext<AppDbContext>(options =>
