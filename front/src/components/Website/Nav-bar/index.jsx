@@ -2,11 +2,27 @@ import React, { useState, useEffect, useRef } from 'react';
 import { FiMenu, FiX, FiUser, FiHome, FiTrendingUp, FiTag, FiBell } from 'react-icons/fi';
 import './navbar.css'; // Tailwind CSS duhet të jetë i importuar
 import { NavLink } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import { FiLogOut } from "react-icons/fi";
+import { logout } from "../../../Server/user/authservice.jsx";
+
 const AdminHeader = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isScrollable, setIsScrollable] = useState(false);
   const menuRef = useRef(null);
   const containerRef = useRef(null);
+  const navigate = useNavigate();
+
+const handleLogout = async () => {
+  try {
+    await logout();
+    setIsSidebarOpen(false);
+    navigate("/login");
+  } catch (error) {
+    console.error("Logout failed", error);
+  }
+};
+
 
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
@@ -46,9 +62,7 @@ const AdminHeader = () => {
           UserPanel
         </div>
 
-        <div className="flex items-center space-x-3 cursor-pointer text-white hover:text-gray-400 transition">
-          <FiUser className="text-2xl" />
-        </div>
+    
       </nav>
 
   
@@ -88,7 +102,16 @@ const AdminHeader = () => {
       </NavLink>
     </li>
   ))}
+
 </ul>
+<button
+  onClick={handleLogout}
+  className="flex items-center justify-center gap-3 w-full px-4 py-3 mb-4 
+             text-white bg-red-500 hover:bg-red-600 rounded transition"
+>
+  <FiLogOut className="text-lg" />
+  Logout
+</button>
 
           <div className="mt-auto text-center text-gray-100 text-xs pt-6 border-t border-gray-100">
             © {new Date().getFullYear()} Techful

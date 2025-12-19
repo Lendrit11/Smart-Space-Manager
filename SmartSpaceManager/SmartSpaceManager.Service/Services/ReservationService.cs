@@ -23,11 +23,21 @@ namespace SmartSpaceManager.Service.Services
         // CREATE
         public async Task<int> CreateReservationAsync(CreateReservationDto dto, int userId)
         {
-            // 1️⃣ Kontrollo për overlapping TimeSlot
-            if (await _timeSlotRepo.HasOverlap(dto.StartTime, dto.EndTime))
-                throw new Exception("TimeSlot overlaps with existing one.");
+            // 1️⃣ Kontrollo nëse ulësja është e lirë për këtë datë dhe orar specifike
+            // Dërgojmë SeatId si listë sepse HasOverlap pret List<int>
+            var isOccupied = await _timeSlotRepo.HasOverlap(
+                new List<int> { dto.SeatId },
+                dto.Date,
+                dto.StartTime,
+                dto.EndTime
+            );
 
-            // 2️⃣ Krijo TimeSlot PARË për të marrë Id
+            if (isOccupied)
+                throw new Exception("Kjo ulëse është e zënë për këtë orar, ose data ka kaluar.");
+
+            // (Opsionale) Start Transaction këtu nëse Repository yt e mbështet
+
+            // 2️⃣ Krijo TimeSlot
             var timeSlot = new TimeSlot
             {
                 StartTime = dto.StartTime,
@@ -35,36 +45,41 @@ namespace SmartSpaceManager.Service.Services
                 Description = dto.Description,
                 Status = TimeSlotStatus.Active
             };
-            await _timeSlotRepo.AddAsync(timeSlot); // ruan TimeSlot dhe merr Id
+            await _timeSlotRepo.AddAsync(timeSlot);
 
-            // 3️⃣ Krijo Reservation me TimeSlotId
+            // 3️⃣ Krijo Reservation
             var reservation = new Reservation
             {
                 UserId = userId,
-                Date = dto.Date,
+                Date = dto.Date, // Këtu ruhet data që vjen nga DTO
                 Status = ReservationStatus.Active,
-                TimeSlotId = timeSlot.Id // lidhet FK direkt
+                TimeSlotId = timeSlot.Id,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now
             };
             await _reservationRepo.AddAsync(reservation);
 
-            // 4️⃣ Rezervo Seat
+            // 4️⃣ Merr ulësen dhe lidhe me rezervimin
             var seat = await _seatRepo.GetSeatByIdAsync(dto.SeatId);
-            if (seat == null) throw new Exception("Seat not found.");
+            if (seat == null)
+            {
+                // Këtu do të duhej të bëhej Rollback nëse ka transaksion
+                throw new Exception("Ulësja nuk u gjet.");
+            }
 
-            // Lidha Seat me Reservation
+            // Përditëso seat me ID-në e rezervimit të ri
             seat.reservationId = reservation.Id;
             await _seatRepo.UpdateSeatAsync(seat);
-            reservation.seats.Add(seat);
 
-            // 5️⃣ Lidh Reservation me TimeSlot në objekt (opsionale, por për konsistencë)
+            // Lidhja në memorie për objektin (në rast se do t'i përdorësh menjëherë)
+            reservation.seats.Add(seat);
             timeSlot.Reservations.Add(reservation);
 
-            // 6️⃣ Update Reservation në DB nëse ka nevojë
+            // 5️⃣ Update përfundimtar
             await _reservationRepo.UpdateAsync(reservation);
 
             return reservation.Id;
         }
-
         // GET
         public async Task<ReservationResponseDto> GetReservationByIdAsync(int reservationId)
         {

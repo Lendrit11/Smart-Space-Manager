@@ -11,7 +11,7 @@ namespace SmartSpaceManager.DAL.Interfaces
     {
         Task AddAsync(TimeSlot slot);
         Task UpdateAsync(TimeSlot slot);
-        Task<bool> HasOverlap(TimeSpan start, TimeSpan end, int? excludeId = null);
+        Task<bool> HasOverlap(List<int> requestedSeatIds, DateTime date, TimeSpan start, TimeSpan end, int? excludeReservationId = null);
         Task<TimeSlot?> GetByIdAsync(int id);
     }
 }

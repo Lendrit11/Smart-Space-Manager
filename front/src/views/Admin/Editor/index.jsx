@@ -13,22 +13,36 @@ export default function App() {
   const [floorToDelete, setFloorToDelete] = useState(null);
   const [loading, setLoading] = useState(true);
 
- const fetchFloors = async () => {
+const normalizeArray = (data) => {
+  if (!data) return [];
+  if (Array.isArray(data)) return data;
+  if (Array.isArray(data.$values)) return data.$values;
+  if (Array.isArray(data.data)) return data.data;
+  return [];
+};
+
+const fetchFloors = async () => {
   if (!buildingId) {
-    setLoading(false); // ky e siguron që Loading të largohet
+    setLoading(false);
     return;
   }
   setLoading(true);
   try {
     const data = await getFloorsByBuilding(buildingId);
-    setFloors(data);
-    if (data.length > 0) setSelectedFloor(data[0].id);
+    console.log("getFloorsByBuilding raw:", data); // shiko strukturën në console
+    const floorsArray = normalizeArray(data);
+    setFloors(floorsArray);
+    if (floorsArray.length > 0) setSelectedFloor(floorsArray[0].id);
+    else setSelectedFloor(null);
   } catch (err) {
-    console.error(err);
+    console.error("Error fetching floors:", err);
+    setFloors([]);
+    setSelectedFloor(null);
   } finally {
     setLoading(false);
   }
 };
+
 
 
   useEffect(() => {

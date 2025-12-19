@@ -1,31 +1,55 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-export default function FloorTabs({ floors, selected, onSelect }) {
+export default function FloorTabs({
+  floors = [],
+  selectedFloor,
+  onSelect,
+  loading = false,
+}) {
+  // 🔒 Siguri absolute: floors duhet të jetë array
+  const safeFloors = Array.isArray(floors)
+    ? floors
+    : Array.isArray(floors?.$values)
+    ? floors.$values
+    : [];
+
+  if (loading) {
+    return <div>Duke ngarkuar katet...</div>;
+  }
+
+  if (safeFloors.length === 0) {
+    return <div>Nuk u gjet asnjë kat.</div>;
+  }
+
   return (
-    <div className="flex items-center gap-3">
-      <nav className="flex items-center gap-2 bg-slate-800/40 p-1 rounded-full">
-        {floors.map((f) => (
-          <button
-            key={f.id}
-            onClick={() => onSelect(f.id)}
-            className={`flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium transition ${
-              f.id === selected
-                ? "bg-gradient-to-r from-indigo-500 to-cyan-400 text-slate-900 shadow"
-                : "text-slate-300 hover:bg-slate-700/40"
-            }`}
-            aria-pressed={f.id === selected}
-          >
-            <span>{f.name}</span>
-          </button>
-        ))}
-      </nav>
+    <div
+      style={{
+        display: "flex",
+        gap: 8,
+        marginBottom: 12,
+        flexWrap: "wrap",
+      }}
+    >
+      {safeFloors.map((floor) => (
+        <button
+          key={floor.id}
+          onClick={() => onSelect(floor.id)}
+          style={{
+            padding: "8px 14px",
+            borderRadius: 8,
+            border:
+              floor.id === selectedFloor
+                ? "2px solid #2563eb"
+                : "1px solid #e6eef6",
+            background:
+              floor.id === selectedFloor ? "#eff6ff" : "#fff",
+            cursor: "pointer",
+            fontWeight: 600,
+          }}
+        >
+          {floor.name || `Kati ${floor.id}`}
+        </button>
+      ))}
     </div>
   );
 }
-
-FloorTabs.propTypes = {
-  floors: PropTypes.array.isRequired,
-  selected: PropTypes.number,
-  onSelect: PropTypes.func.isRequired,
-};

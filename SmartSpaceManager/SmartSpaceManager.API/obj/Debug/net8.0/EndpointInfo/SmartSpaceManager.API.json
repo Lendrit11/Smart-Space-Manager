@@ -71,29 +71,6 @@
         }
       }
     },
-    "/api/desk/by-floor/{floorId}": {
-      "get": {
-        "tags": [
-          "Desk"
-        ],
-        "parameters": [
-          {
-            "name": "floorId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/api/desk/create": {
       "post": {
         "tags": [
@@ -149,6 +126,29 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/desk/by-floor/{floorId}": {
+      "get": {
+        "tags": [
+          "Desk"
+        ],
+        "parameters": [
+          {
+            "name": "floorId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -642,6 +642,18 @@
               "type": "string"
             }
           }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/user/logout": {
+      "post": {
+        "tags": [
+          "User"
         ],
         "responses": {
           "200": {

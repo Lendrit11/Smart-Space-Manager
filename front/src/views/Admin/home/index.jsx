@@ -34,14 +34,26 @@ export default function HomePage() {
     loadBuildings();
   }, []);
 
-  const loadBuildings = async () => {
-    try {
-      const data = await getAllBuildings();
-      setBuildings(data);
-    } catch (error) {
-      console.error("Failed to load buildings", error);
-    }
-  };
+const loadBuildings = async () => {
+  try {
+    const data = await getAllBuildings();
+    console.log("Buildings API raw:", data);
+
+    // Normalizo në array
+    const normalized = Array.isArray(data)
+      ? data
+      : Array.isArray(data?.$values)
+      ? data.$values
+      : Array.isArray(data?.data)
+      ? data.data
+      : [];
+
+    setBuildings(normalized);
+  } catch (error) {
+    console.error("Failed to load buildings", error);
+    setBuildings([]); // sigurim që është array
+  }
+};
 
   // 🔹 NAVIGATION
   const handleManageSpace = (buildingId) => {

@@ -43,7 +43,7 @@
   },
   {
     "ContainingType": "SmartSpaceManager.API.Controllers.module_desk.DeskController",
-    "Method": "GetByFloor",
+    "Method": "GetByFloorid",
     "RelativePath": "api/desk/by-floor/{floorId}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -378,6 +378,16 @@
         "IsRequired": false
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartSpaceManager.API.Controllers.module_user.UserController",
+    "Method": "Logout",
+    "RelativePath": "api/user/logout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {

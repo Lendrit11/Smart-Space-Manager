@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Auth() {
   const [isRegister, setIsRegister] = useState(false);
@@ -6,7 +7,7 @@ function Auth() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -42,10 +43,9 @@ function Auth() {
 
         const data = await res.json();
 document.cookie = `accessToken=${data.accessToken}; path=/; secure; samesite=strict`;
-
-// Mund ta ruash edhe në localStorage për përdorim më të lehtë
 localStorage.setItem("accessToken", data.accessToken);
         alert("Register sukses");
+        navigate("/admin/home");
       } else {
         const res = await fetch(
           `https://localhost:7218/api/user/login?` +
@@ -67,7 +67,9 @@ localStorage.setItem("accessToken", data.accessToken);
 document.cookie = `accessToken=${data.accessToken}; path=/; secure; samesite=strict`;
 
 // Mund ta ruash edhe në localStorage për përdorim më të lehtë
-localStorage.setItem("accessToken", data.accessToken);        alert("Login sukses");
+localStorage.setItem("accessToken", data.accessToken);     
+   alert("Login sukses");
+navigate("/admin/home");
       }
     } catch (err) {
       alert("Gabim me server");

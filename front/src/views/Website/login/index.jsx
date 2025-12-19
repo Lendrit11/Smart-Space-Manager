@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 function Auth() {
   const [isRegister, setIsRegister] = useState(false);
-
+const navigate = useNavigate();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -41,8 +43,10 @@ function Auth() {
         }
 
         const data = await res.json();
-        localStorage.setItem("accessToken", data.accessToken);
-        alert("Register sukses");
+document.cookie = `accessToken=${data.accessToken}; path=/; secure; samesite=strict`;
+
+localStorage.setItem("accessToken", data.accessToken);        alert("Register sukses");
+        navigate("/home");
       } else {
         const res = await fetch(
           `https://localhost:7218/api/user/login?` +
@@ -59,10 +63,16 @@ function Auth() {
           alert(text);
           return;
         }
-
         const data = await res.json();
-        localStorage.setItem("accessToken", data.accessToken);
+
+// Ruaje tokenin në cookie
+document.cookie = `accessToken=${data.accessToken}; path=/; secure; samesite=strict`;
+
+// Mund ta ruash edhe në localStorage për përdorim më të lehtë
+localStorage.setItem("accessToken", data.accessToken);
+
         alert("Login sukses");
+        navigate("/home");
       }
     } catch (err) {
       alert("Gabim me server");

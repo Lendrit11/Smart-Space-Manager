@@ -157,5 +157,19 @@ namespace SmartSpaceManager.Service.Services
 
             return (accessToken, refreshToken, isAdmin);
         }
+        // ================= Log out =================
+        public async Task LogoutAsync(int userId)
+        {
+            var user = await _userRepository.GetUserByIdAsync(userId);
+            if (user == null)
+                throw new Exception("User not found.");
+
+            // Fshij refresh token
+            user.refreshToken = null;
+            user.refreshTokenExpiryTime = null;
+
+            await _userRepository.UpdateUserAsync(user);
+        }
+
     }
 }

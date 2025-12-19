@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { FiMenu, FiX, FiUser, FiHome, FiTrendingUp, FiTag, FiBell } from 'react-icons/fi';
+import { FiMenu, FiX, FiUser, FiHome, FiTrendingUp, FiTag, FiBell, FiLogOut } from 'react-icons/fi';
 import './index.css'; // Tailwind CSS duhet të jetë i importuar
 import { NavLink } from 'react-router-dom';
+import { logout } from "../../../Server/user/authservice.jsx";
 const AdminHeader = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isScrollable, setIsScrollable] = useState(false);
@@ -9,6 +10,15 @@ const AdminHeader = () => {
   const containerRef = useRef(null);
 
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
+  const handleLogout = async () => {
+    try {
+      await logout();
+      setIsSidebarOpen(false);
+      navigate("/login");
+    } catch (error) {
+      console.error("Logout failed", error);
+    }
+  };
 
   useEffect(() => {
     const checkScrollable = () => {
@@ -46,10 +56,7 @@ const AdminHeader = () => {
           AdminPanel
         </div>
 
-        <div className="flex items-center space-x-3 cursor-pointer text-white hover:text-gray-400 transition">
-          <span className="font-bold">Profile</span>
-          <FiUser className="text-2xl" />
-        </div>
+     
       </nav>
 
 
@@ -92,6 +99,14 @@ const AdminHeader = () => {
     </li>
   ))}
 </ul>
+<button
+  onClick={handleLogout}
+  className="flex items-center justify-center gap-3 w-full px-4 py-3 mb-4 
+             text-white bg-red-500 hover:bg-red-600 rounded transition"
+>
+  <FiLogOut className="text-lg" />
+  Logout
+</button>
 
           <div className="mt-auto text-center text-gray-200 text-xs pt-6 border-t border-gray-200">
             © {new Date().getFullYear()} Techful

@@ -32,9 +32,30 @@ namespace SmartSpaceManager.API.Controllers.module_desk
         }
 
 
+ 
+        [HttpPost("create")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Create(DeskDto deskDto)
+        {
+            var userId = GetUserIdFromToken();
+            await _activityLogService.LogAsync(userId, $"Created Desk = {deskDto.Id} from admin {userId}");
+            await _service.AddDesk(deskDto);
+            return Ok();
+        }
+
+        [HttpPut("update")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Update(DeskDto deskDto)
+        {
+            var userId = GetUserIdFromToken();
+            await _activityLogService.LogAsync(userId, $"updated Desk{deskDto.Id} from admin {userId}");
+            await _service.UpdateDesk(deskDto);
+            return Ok();
+        }
+
         [HttpGet("by-floor/{floorId}")]
         [Authorize]
-        public async Task<IActionResult> GetByFloor(int floorId)
+        public async Task<IActionResult> GetByFloorid(int floorId)
         {
             var desks = await _service.GetDesksByFloor(floorId);
 
@@ -61,25 +82,6 @@ namespace SmartSpaceManager.API.Controllers.module_desk
             return Ok(deskDtos);
         }
 
-        [HttpPost("create")]
-        [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Create(DeskDto deskDto)
-        {
-            var userId = GetUserIdFromToken();
-            await _activityLogService.LogAsync(userId, $"Created Desk = {deskDto.Id} from admin {userId}");
-            await _service.AddDesk(deskDto);
-            return Ok();
-        }
-
-        [HttpPut("update")]
-        [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Update(DeskDto deskDto)
-        {
-            var userId = GetUserIdFromToken();
-            await _activityLogService.LogAsync(userId, $"updated Desk{deskDto.Id} from admin {userId}");
-            await _service.UpdateDesk(deskDto);
-            return Ok();
-        }
 
         [HttpDelete("delete/{id}")]
         [Authorize(Roles = "Admin")]

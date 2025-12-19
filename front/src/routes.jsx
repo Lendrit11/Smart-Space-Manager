@@ -73,7 +73,7 @@ const routes = [
         element: lazy(() => import('./views/Website/home/index.jsx')),
       },
       {
-        path: 'kati',
+        path: 'kati/:buildingId',
         element: lazy(() => import('./views/Website/kati/index.jsx')),
       },
        {

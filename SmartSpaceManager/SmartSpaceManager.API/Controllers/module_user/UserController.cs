@@ -73,6 +73,22 @@ namespace SmartSpaceManager.API.Controllers.module_user
 
             return Ok(new { accessToken });
         }
+        [HttpPost("logout")]
+        [Authorize]
+        public async Task<IActionResult> Logout()
+        {
+            try
+            {
+                int userId = GetUserIdFromToken();
+                await _userService.LogoutAsync(userId);
+                Response.Cookies.Delete("refreshToken");
+                return Ok(new { message = "Logged out successfully" });
+            }
+            catch (Exception ex)
+            {
+                return Unauthorized(new { message = ex.Message });
+            }
+        }
 
         [HttpPost("login")]
         public async Task<IActionResult> Login(string email, string password)

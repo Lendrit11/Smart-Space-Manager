@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+ï»¿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using SmartSpaceManager.DAL;
@@ -50,12 +50,19 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("ReactCors", policy =>
     {
-        policy.WithOrigins("http://localhost:5173") // porti ku është React
+        policy.WithOrigins("http://localhost:5173") // porti ku Ã«shtÃ« React
               .AllowAnyHeader()
               .AllowAnyMethod()
               .AllowCredentials();
     });
 });
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+        options.JsonSerializerOptions.MaxDepth = 64; // opsionale, pï¿½r tï¿½ rritur depth
+    });
+
 
 builder.Services.AddScoped<IActivityLogRepository, ActivityLogRepository>();
 builder.Services.AddScoped<ActivityLogService>();

@@ -1,20 +1,11 @@
+// components/Website/smartspace/Modal.jsx
 import React, { useEffect, useRef } from "react";
 
-/**
- * Props:
- * - open: boolean
- * - title: string
- * - children: node (body)
- * - onClose: fn
- * - actions: node (butona/footer)
- */
 export default function Modal({ open, title, children, onClose, actions }) {
   const dialogRef = useRef(null);
 
   useEffect(() => {
     if (!open) return;
-
-    // Focus initial
     const timer = setTimeout(() => {
       const focusable = dialogRef.current.querySelectorAll(
         'button:not([disabled]), [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
@@ -22,7 +13,6 @@ export default function Modal({ open, title, children, onClose, actions }) {
       if (focusable.length) focusable[0].focus();
     }, 10);
 
-    // Keyboard handling: Escape + simple focus trap
     const onKey = (e) => {
       if (e.key === "Escape") onClose();
       if (e.key === "Tab") {
@@ -52,39 +42,17 @@ export default function Modal({ open, title, children, onClose, actions }) {
   if (!open) return null;
 
   return (
-    <div
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="modal-title"
-      onClick={onClose}
-      style={styles.backdrop}
-    >
-      <div
-        ref={dialogRef}
-        onClick={(e) => e.stopPropagation()}
-        style={styles.panel}
-      >
+    <div role="dialog" aria-modal="true" aria-labelledby="modal-title" onClick={onClose} style={styles.backdrop}>
+      <div ref={dialogRef} onClick={(e) => e.stopPropagation()} style={styles.panel}>
         <header style={styles.header}>
           <h3 id="modal-title" style={styles.title}>{title}</h3>
-          <button
-            onClick={onClose}
-            aria-label="Mbyll modalin"
-            style={styles.close}
-          >
-            ✕
-          </button>
+          <button onClick={onClose} aria-label="Mbyll modalin" style={styles.close}>✕</button>
         </header>
 
-        <div style={styles.body}>
-          {children}
-        </div>
+        <div style={styles.body}>{children}</div>
 
         <footer style={styles.footer}>
-          {actions ? actions : (
-            <button onClick={onClose} style={styles.primary}>
-              Mbyll
-            </button>
-          )}
+          {actions ? actions : (<button onClick={onClose} style={styles.primary}>Mbyll</button>)}
         </footer>
       </div>
     </div>
@@ -102,7 +70,6 @@ const styles = {
     backdropFilter: "blur(4px)",
     zIndex: 9999,
     padding: 20,
-    animation: "fadeIn 200ms ease",
   },
   panel: {
     width: "min(640px, 96%)",
@@ -113,8 +80,6 @@ const styles = {
     overflow: "hidden",
     display: "flex",
     flexDirection: "column",
-    transformOrigin: "center",
-    animation: "popIn 220ms cubic-bezier(.2,.9,.3,1)",
   },
   header: {
     display: "flex",
@@ -123,47 +88,9 @@ const styles = {
     padding: "16px 20px",
     borderBottom: "1px solid #eef2f6",
   },
-  title: {
-    margin: 0,
-    fontSize: 18,
-    fontWeight: 700,
-    color: "#0b1220",
-  },
-  close: {
-    border: "none",
-    background: "transparent",
-    fontSize: 18,
-    cursor: "pointer",
-    color: "#475569",
-    padding: 6,
-    borderRadius: 8,
-  },
-  body: {
-    padding: 20,
-    overflow: "auto",
-    color: "#344054",
-    fontSize: 14,
-    lineHeight: 1.5,
-  },
-  footer: {
-    padding: 12,
-    borderTop: "1px solid #eef2f6",
-    display: "flex",
-    gap: 8,
-    justifyContent: "flex-end",
-  },
-  primary: {
-    background: "linear-gradient(90deg,#2563eb,#7c3aed)",
-    color: "#fff",
-    border: "none",
-    padding: "8px 14px",
-    borderRadius: 10,
-    cursor: "pointer",
-    fontWeight: 600,
-  },
+  title: { margin: 0, fontSize: 18, fontWeight: 700, color: "#0b1220" },
+  close: { border: "none", background: "transparent", fontSize: 18, cursor: "pointer", color: "#475569", padding: 6, borderRadius: 8 },
+  body: { padding: 20, overflow: "auto", color: "#344054", fontSize: 14, lineHeight: 1.5 },
+  footer: { padding: 12, borderTop: "1px solid #eef2f6", display: "flex", gap: 8, justifyContent: "flex-end" },
+  primary: { background: "linear-gradient(90deg,#2563eb,#7c3aed)", color: "#fff", border: "none", padding: "8px 14px", borderRadius: 10, cursor: "pointer", fontWeight: 600 },
 };
-
-/* Note: Add these keyframes into your global CSS to get animations:
-@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
-@keyframes popIn { from { opacity: 0; transform: translateY(8px) scale(.985) } to { opacity: 1; transform: translateY(0) scale(1) } }
-*/
