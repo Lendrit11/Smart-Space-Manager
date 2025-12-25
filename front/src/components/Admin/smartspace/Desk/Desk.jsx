@@ -36,15 +36,10 @@ function Desk({ id, x = 0, y = 0, width = 70, height = 40, label = "", type = "T
     pointerEvents: "auto",
   };
 
-  const seatRelativePos = (seatX, seatY) => {
-    return {
-      left: Math.round(seatX - x),
-      top: Math.round(seatY - y),
-    };
-  };
-
+  
   return (
     <>
+      {/* Tavolina */}
       <div
         role="button"
         tabIndex={0}
@@ -53,43 +48,42 @@ function Desk({ id, x = 0, y = 0, width = 70, height = 40, label = "", type = "T
         style={deskStyle}
       >
         <div style={{ position: "absolute", left: 0, top: 0, width, height, pointerEvents: "none" }}>{getSVG()}</div>
-
-        <div style={{ position: "absolute", left: "50%", top: "50%", transform: "translate(-50%, -50%)", color: "white", fontWeight: 700, pointerEvents: "none", fontSize: type === "Tavoline e madhe" ? 14 : 11, textAlign: "center", zIndex: 12, textShadow: "0 1px 2px rgba(0,0,0,0.6)", padding: "0 6px", whiteSpace: "nowrap" }}>
+        <div style={{ position: "absolute", left: "50%", top: "50%", transform: "translate(-50%, -50%)", color: "white", fontWeight: 700, pointerEvents: "none", fontSize: 11, textAlign: "center", width: "100%" }}>
           {label}
         </div>
       </div>
 
+      {/* Ulëset (Si vëllezër të tavolinës, me pozicion absolut në dysheme) */}
       {Array.isArray(seats) &&
         seats.map((seat) => {
-          const rel = seatRelativePos(seat.x ?? 0, seat.y ?? 0);
           const seatStyle = {
             position: "absolute",
-            left: rel.left,
-            top: rel.top,
+            left: seat.x, // Koordinata absolute
+            top: seat.y,  // Koordinata absolute
             width: 30,
             height: 30,
             backgroundColor: "#10B981",
             color: "#fff",
             borderRadius: "50%",
-            transform: "translate(-50%, -50%)",
+            transform: "translate(-50%, -50%)", // Qendra e ulëses në pikën X,Y
             cursor: "grab",
-            zIndex: 20,
+            zIndex: 20, // Mbi tavolinë
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
             fontSize: 10,
             fontWeight: 700,
             border: "1px solid rgba(0,0,0,0.15)",
-            boxShadow: "0 1px 4px rgba(0,0,0,0.2)",
             pointerEvents: "auto",
+            boxShadow: "0 2px 4px rgba(0,0,0,0.2)"
           };
 
           return (
             <div
               key={seat.id ?? `${id}-seat-${seat.label}`}
               onMouseDown={(e) => { e.stopPropagation(); onSeatMouseDown?.(e, id, seat.id); }}
-              title={seat.label}
               style={seatStyle}
+              title={seat.label}
             >
               {seat.label ?? "U"}
             </div>

@@ -2,19 +2,21 @@ import React, { useState, useEffect, useRef } from 'react';
 import { FiMenu, FiX, FiUser, FiHome, FiTrendingUp, FiTag, FiBell, FiLogOut } from 'react-icons/fi';
 import './index.css'; // Tailwind CSS duhet të jetë i importuar
 import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { logout } from "../../../Server/user/authservice.jsx";
 const AdminHeader = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isScrollable, setIsScrollable] = useState(false);
   const menuRef = useRef(null);
   const containerRef = useRef(null);
+  const navigate = useNavigate();
 
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
   const handleLogout = async () => {
     try {
       await logout();
       setIsSidebarOpen(false);
-      navigate("/login");
+      navigate("/admin/login");
     } catch (error) {
       console.error("Logout failed", error);
     }

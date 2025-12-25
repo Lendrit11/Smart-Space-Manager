@@ -15,9 +15,6 @@ export default function FloorEditor({ floorId }) {
   const [selectedDeskId, setSelectedDeskId] = useState(null);
   const [seatCount, setSeatCount] = useState(4);
 
-  // delete modal
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
-
   const normalizeArray = (data) => {
     if (!data) return [];
     if (Array.isArray(data)) return data;
@@ -118,21 +115,6 @@ export default function FloorEditor({ floorId }) {
     }
   };
 
-  // delete desk
-  const deleteDesk = async (deskId) => {
-    if (processing) return;
-    setProcessing(true);
-    try {
-      await deskApi.deleteDesk(deskId);
-      setDesks((prev) => prev.filter((d) => d.id !== deskId));
-      setShowDeleteModal(false);
-    } catch (err) {
-      console.error("Gabim në fshirjen e tavolinës:", err);
-    } finally {
-      setProcessing(false);
-    }
-  };
-
   // double click opens seat modal
   const handleDeskDoubleClick = (deskId) => {
     setSelectedDeskId(deskId);
@@ -145,66 +127,23 @@ export default function FloorEditor({ floorId }) {
     setSelectedDeskId(null);
   };
 
-  // generate seats around desk and save to backend
-  const generateSeats = async () => {
-    if (processing) return;
-    setProcessing(true);
-    try {
-      const desk = desks.find((d) => d.id === selectedDeskId);
-      if (!desk) return;
+// helper për të normalizuar seat object (siguron id/tempId, label, x,y)
+const normalizeSeat = (s) => ({
+  id: s.id ?? s.Id ?? undefined,
+  tempId: s.tempId ?? (s.id ? undefined : `temp-${Date.now()}-${Math.random().toString(36).slice(2,7)}`),
+  label: s.label ?? s.name ?? s.Name ?? "U",
+  x: Number(s.x ?? s.positionX ?? s.PositionX ?? 0),
+  y: Number(s.y ?? s.positionY ?? s.PositionY ?? 0),
+  reservationIds: s.reservationIds ?? s.ReservationIds ?? [],
+});
 
-      const seatsToCreate = [];
-      const angleStep = 360 / seatCount;
-      // radius based on desk size
-      const radius = desk.width > 100 ? Math.max(desk.width, desk.height) * 0.6 : Math.max(desk.width, desk.height) * 0.5;
-      const tableNumber = desk.label?.split(" ").pop() ?? desk.id;
-
-      for (let i = 0; i < seatCount; i++) {
-        const angle = angleStep * i;
-        const rad = (angle * Math.PI) / 180;
-        const seatX = Math.round(desk.x + desk.width / 2 + Math.cos(rad) * radius);
-        const seatY = Math.round(desk.y + desk.height / 2 + Math.sin(rad) * radius);
-
-        seatsToCreate.push({
-          deskId: desk.id,
-          name: `T${tableNumber}-${i + 1}`,
-          positionX: seatX,
-          positionY: seatY,
-        });
-      }
-
-      const savedSeats = await Promise.all(seatsToCreate.map((s) => seatApi.createSeat(s)));
-
-      setDesks((prev) =>
-        prev.map((d) =>
-          d.id === desk.id
-            ? {
-                ...d,
-                seats: [
-                  ...d.seats,
-                  ...savedSeats.map((s) => ({
-                    id: s.id,
-                    label: s.name,
-                    x: Number(s.positionX) || 0,
-                    y: Number(s.positionY) || 0,
-                  })),
-                ],
-              }
-            : d
-        )
-      );
-    } catch (err) {
-      console.error("Gabim në shtimin e ulëseve:", err);
-    } finally {
-      setProcessing(false);
-      closeSeatModal();
-    }
-  };
-
-  // helper: përditëson në backend dhe në state (optimistic)
+// Përditëso desk + seats me logging, dhe krijo ose update për secilën ulëse
 const updateDeskPosition = async (desk) => {
   try {
-    const payload = {
+    // normalizo seats në rast se vijnë me fusha të ndryshme
+    const seats = (desk.seats || []).map(normalizeSeat);
+
+    const deskPayload = {
       id: desk.id,
       name: desk.label,
       positionX: Math.round(desk.x),
@@ -214,43 +153,90 @@ const updateDeskPosition = async (desk) => {
       shape: desk.type === "Tavoline e madhe" ? "large" : desk.type === "Tavoline rrethore" ? "round" : "small",
       floorId: desk.floorId || floorId,
     };
-    await deskApi.updateDesk(payload);
-    // opsionale: refresh nga server ose log success
+
+    console.log("Updating desk payload:", deskPayload);
+    await deskApi.updateDesk(deskPayload);
+    console.log("Desk updated successfully", desk.id);
+
+    // Për çdo seat: nëse ka id -> update, nëse jo -> create
+    for (const seat of seats) {
+      // Validate minimal fields
+      const seatPayload = {
+        Id: seat.id ?? 0, // 0 për create
+        Name: seat.label,
+        PositionX: Math.round(seat.x),
+        PositionY: Math.round(seat.y),
+        DeskId: desk.id,
+        ReservationIds: Array.isArray(seat.reservationIds) ? seat.reservationIds : [],
+      };
+
+      console.log("Preparing seat payload:", seatPayload);
+
+      try {
+        if (seat.id) {
+          // update
+          console.log("Updating seat:", seatPayload);
+          const res = await seatApi.updateSeat(seatPayload);
+          console.log("Seat update response:", res);
+        } else {
+          // create
+          console.log("Creating seat:", seatPayload);
+          const created = await seatApi.createSeat({
+            DeskId: seatPayload.DeskId,
+            Name: seatPayload.Name,
+            PositionX: seatPayload.PositionX,
+            PositionY: seatPayload.PositionY,
+            ReservationIds: seatPayload.ReservationIds,
+          });
+          console.log("Seat created:", created);
+
+          // Replace tempId seat in state with created seat (id + normalized fields)
+          setDesks(prev => prev.map(d => d.id === desk.id ? {
+            ...d,
+            seats: d.seats.map(s => {
+              if ((s.tempId && s.tempId === seat.tempId) || (!s.id && s.label === seat.label && s.x === seat.x && s.y === seat.y)) {
+                return normalizeSeat(created);
+              }
+              return s;
+            })
+          } : d));
+        }
+      } catch (seatErr) {
+        console.error("Update/Create seat failed for payload:", seatPayload, seatErr);
+        // këtu mund të shtosh retry logic ose të mbash listën e seat që dështuan
+      }
+    }
   } catch (err) {
     console.error("Update desk failed:", err);
-    // opsionale: rollback në state ose shfaq alert
+    // rollback: rifetcho tavolinat nga serveri
+    try {
+      const fresh = await deskApi.getDesksByFloor(floorId);
+      setDesks(normalizeArray(fresh));
+      console.log("State rolled back from server after failure");
+    } catch (fetchErr) {
+      console.error("Rollback fetch failed:", fetchErr);
+    }
   }
 };
 
-const updateSeatPosition = async (deskId, seat) => {
-  try {
-    const payload = {
-      id: seat.id,
-      name: seat.label,
-      positionX: Math.round(seat.x),
-      positionY: Math.round(seat.y),
-      deskId: deskId
-    };
-    await seatApi.updateSeat(payload);
-  } catch (err) {
-    console.error("Update seat failed:", err);
-  }
-};
 
-// në handleMouseUp
+// në handleMouseUp me logging
 const handleMouseUp = async () => {
   if (!dragging) return;
 
   if (dragging.type === "desk") {
     const desk = desks.find((d) => d.id === dragging.id);
     if (desk) {
-      // përditëso backend
+      console.log("MouseUp for desk", desk.id, "final pos", { x: desk.x, y: desk.y });
+      // debug: shfaq ulset para update
+      console.table(desk.seats.map(s => ({ id: s.id, x: s.x, y: s.y, label: s.label })));
       await updateDeskPosition(desk);
     }
   } else if (dragging.type === "seat") {
     const desk = desks.find((d) => d.id === dragging.deskId);
     const seat = desk?.seats.find((s) => s.id === dragging.seatId);
     if (seat) {
+      console.log("MouseUp for seat", seat.id, "final pos", { x: seat.x, y: seat.y });
       await updateSeatPosition(desk.id, seat);
     }
   }
@@ -258,15 +244,38 @@ const handleMouseUp = async () => {
   setDragging(null);
 };
 
-  
+const updateSeatPosition = async (deskId, seat) => {
+  try {
+    const payload = {
+      Id: seat.id,
+      Name: seat.label,
+      PositionX: Math.round(seat.x),
+      PositionY: Math.round(seat.y),
+      DeskId: deskId,
+    };
+    console.log("updateSeatPosition payload:", payload);
+    await seatApi.updateSeat(payload);
+    console.log("Seat updated", seat.id);
+  } catch (err) {
+    console.error("Update seat failed:", err);
+    // opsionale: retry me backoff
+  }
+};
 
 
 
-
-
-  const handleMouseDown = (e, id) => {
+ const handleMouseDown = (e, id) => {
     e.stopPropagation();
     const desk = desks.find((d) => d.id === id);
+    
+    // Ruajme pozicionet origjinale te ulseve qe te llogarisim delten sakte
+    const seatsWithOriginalPos = desk?.seats.map(s => ({...s, originalX: s.x, originalY: s.y}));
+    // Updatojme state vetem sa per te pasur "originalX" nese duam, 
+    // por me thjesht eshte t'i kemi ne dragging state, por per shpejtesi po e bejme ketu:
+    
+    // Per thjeshtesi, bejme update desks qe te kene keto vlera "originale" momentale
+    setDesks(prev => prev.map(d => d.id === id ? {...d, seats: seatsWithOriginalPos} : d));
+
     setDragging({
       type: "desk",
       id,
@@ -294,60 +303,86 @@ const handleMouseUp = async () => {
   };
 
   // drag end: save to backend
- // brenda FloorEditor
-const addSingleSeat = async (deskId, posX, posY) => {
-  // temp id për optimistic UI
-  const tempId = `temp-${Date.now()}`;
-  // 1) Optimistic: shtoj menjëherë në UI
-  setDesks(prev =>
-    prev.map(d =>
-      d.id === deskId
-        ? { ...d, seats: [...(d.seats || []), { id: tempId, label: "U", x: posX, y: posY }] }
-        : d
-    )
-  );
+const addMultipleSeats = async () => {
+     if (processing) return;
+     const desk = desks.find(d => d.id === selectedDeskId);
+     if (!desk) return;
 
-  // 2) Prepare payload dhe log
-  const payload = {
-  Id: 0,
-  DeskId: deskId,
-  Name: `U-${Date.now()}`,
-  PositionX: Math.round(posX),
-  PositionY: Math.round(posY),
-  ReservationIds: []
-};
+     setProcessing(true);
+     try {
+       const seatsToCreate = [];
+       const angleStep = 360 / seatCount;
+       // Rrezja pak me e madhe se gjysma e tavolines
+       const radius = Math.max(desk.width, desk.height) / 2 + 15; 
+       
+       const centerX = desk.x + desk.width / 2;
+       const centerY = desk.y + desk.height / 2;
 
-const saved = await seatApi.createSeat(payload);
+       for (let i = 0; i < seatCount; i++) {
+         const angle = angleStep * i;
+         const rad = (angle * Math.PI) / 180;
+         
+         // Llogaritja: Qendra + (Rrezja * Cos/Sin)
+         const seatX = Math.round(centerX + Math.cos(rad) * radius);
+         const seatY = Math.round(centerY + Math.sin(rad) * radius);
 
+         seatsToCreate.push({
+           DeskId: desk.id, // PascalCase per server
+           Name: `U-${i + 1}`,
+           PositionX: seatX,
+           PositionY: seatY,
+           ReservationIds: []
+         });
+       }
 
-  try {
-    const saved = await seatApi.createSeat(payload); // duhet të return res.data
-    console.log("Create seat response:", saved);
+       // I ruajm ne server te gjitha njeheresh
+       // Kujdes: Nese API nuk pranon bulk insert, beje me loop await
+       const savedSeats = [];
+       for(const s of seatsToCreate) {
+          const res = await seatApi.createSeat(s);
+          savedSeats.push(res);
+       }
 
-    // 3) Replace temp seat me seat reale nga server
-    setDesks(prev =>
-      prev.map(d =>
-        d.id === deskId
-          ? {
-              ...d,
-              seats: (d.seats || []).map(s =>
-                s.id === tempId ? { id: saved.id ?? s.id, label: saved.name ?? s.label, x: Number(saved.positionX) || s.x, y: Number(saved.positionY) || s.y } : s
-              ),
-            }
-          : d
-      )
-    );
-  } catch (err) {
-    console.error("Gabim në shtimin e ulëses:", err);
-    // rollback: heq temp seat
-    setDesks(prev => prev.map(d => (d.id === deskId ? { ...d, seats: (d.seats || []).filter(s => s.id !== tempId) } : d)));
-    // opsionale: shfaq alert
-  }
-};
+       // Update UI
+       setDesks(prev => prev.map(d => 
+         d.id === desk.id 
+         ? { 
+             ...d, 
+             seats: [...d.seats, ...savedSeats.map(s => ({
+               id: s.id || s.Id,
+               label: s.name || s.Name,
+               x: s.positionX || s.PositionX,
+               y: s.positionY || s.PositionY
+             }))] 
+           } 
+         : d
+       ));
 
+       closeSeatModal();
+
+     } catch (err) {
+       console.error("Gabim ne shtimin e ulseve:", err);
+     } finally {
+       setProcessing(false);
+     }
+  };
+const deleteSingleDesk = async () => {
+      if(!selectedDeskId) return;
+      if(processing) return;
+      setProcessing(true);
+      try {
+          await deskApi.deleteDesk(selectedDeskId);
+          setDesks(prev => prev.filter(d => d.id !== selectedDeskId));
+          closeSeatModal(); // Mbyll modalin pas fshirjes
+      } catch (err) {
+          console.error(err);
+      } finally {
+          setProcessing(false);
+      }
+  };
 
   // drag move: update local state
-  const handleMouseMove = (e) => {
+ const handleMouseMove = (e) => {
     if (!dragging) return;
     const clientX = e.clientX;
     const clientY = e.clientY;
@@ -355,11 +390,31 @@ const saved = await seatApi.createSeat(payload);
     if (dragging.type === "desk") {
       const dx = clientX - dragging.startClientX;
       const dy = clientY - dragging.startClientY;
-      setDesks((prev) => prev.map((d) => (d.id === dragging.id ? { ...d, x: dragging.startX + dx, y: dragging.startY + dy } : d)));
-    } else if (dragging.type === "seat") {
-      const dx = clientX - dragging.startClientX;
-      const dy = clientY - dragging.startClientY;
+
       setDesks((prev) =>
+        prev.map((d) => {
+          if (d.id === dragging.id) {
+            // Llogarisim pozicionin e ri te tavolines
+            const newX = dragging.startX + dx;
+            const newY = dragging.startY + dy;
+
+            // RREGULLIMI: Levizim edhe ulset perkatese me te njejten distance (dx, dy)
+            const updatedSeats = d.seats.map(seat => ({
+                ...seat,
+                x: (seat.originalX || seat.x) + dx, // Supozojmë që ruajmë originalX kur nis drag
+                y: (seat.originalY || seat.y) + dy
+            }));
+
+            return { ...d, x: newX, y: newY, seats: updatedSeats };
+          }
+          return d;
+        })
+      );
+    } else if (dragging.type === "seat") {
+       // ... logjika e vjeter per seat drag (eshte ok)
+       const dx = clientX - dragging.startClientX;
+       const dy = clientY - dragging.startClientY;
+       setDesks((prev) =>
         prev.map((d) =>
           d.id === dragging.deskId
             ? {
@@ -387,11 +442,7 @@ const saved = await seatApi.createSeat(payload);
           ➕ Tavolinë Rrethore
         </button>
 
-        {desks.length > 0 && (
-          <button onClick={() => setShowDeleteModal(true)} style={{ padding: "8px 12px", backgroundColor: "#dc3545", color: "white", border: "none", borderRadius: "6px", cursor: "pointer", marginLeft: "10px" }}>
-            🗑️ Fshi Tavolina
-          </button>
-        )}
+  
       </div>
 
       <div
@@ -424,43 +475,40 @@ const saved = await seatApi.createSeat(payload);
       </div>
 
       {/* Seat modal */}
-      {showSeatModal && (
+{showSeatModal && (
         <div style={{ position: "fixed", left: 0, top: 0, width: "100%", height: "100%", backgroundColor: "rgba(0,0,0,0.5)", display: "flex", justifyContent: "center", alignItems: "center", zIndex: 100 }}>
-          <div style={{ backgroundColor: "white", padding: 30, borderRadius: 12, minWidth: "350px", boxShadow: "0 10px 30px rgba(0,0,0,0.3)" }}>
-            <h4 style={{ marginBottom: 20, fontSize: 18, color: "#333" }}>🪑 Shto Ulëse në Tavolinë</h4>
+          <div style={{ backgroundColor: "white", padding: 30, borderRadius: 12, minWidth: "400px", boxShadow: "0 10px 30px rgba(0,0,0,0.3)" }}>
+            <h4 style={{ marginBottom: 20, fontSize: 18, color: "#333" }}>Menaxho Tavolinën</h4>
+            
+            {/* Input per numrin e ulseve */}
             <div style={{ marginBottom: 20 }}>
-              <label style={{ display: "block", marginBottom: 8, fontWeight: "bold", color: "#555" }}>Numri i ulëseve:</label>
-              <input type="number" value={seatCount} onChange={(e) => setSeatCount(Math.max(1, Math.min(20, parseInt(e.target.value) || 1)))} min={1} max={20} style={{ width: "100%", padding: "12px", border: "2px solid #4F46E5", color: "black", borderRadius: "8px", fontSize: "16px", outline: "none" }} autoFocus />
-              <div style={{ fontSize: 12, color: "#666", marginTop: 5 }}>Shkruaj një numër nga 1 deri në 20</div>
+              <label style={{ display: "block", marginBottom: 8, fontWeight: "bold", color: "#555" }}>Shto grup ulësesh:</label>
+              <div style={{display: 'flex', gap: 10}}>
+                  <input type="number" value={seatCount} onChange={(e) => setSeatCount(e.target.value)} min={1} max={20} style={{ padding: "8px", border: "1px solid #ccc", borderRadius: 4, width: 80 }} />
+                  <button onClick={addMultipleSeats} disabled={processing} style={{backgroundColor: "#4F46E5", color: "white", border: "none", padding: "8px 15px", borderRadius: 4, cursor: "pointer"}}>
+                      Gjenero {seatCount} Ulëse
+                  </button>
+              </div>
             </div>
-            <div style={{ display: "flex", gap: "10px" }}>
-<button
-  onClick={() => {
-    const desk = desks.find(d => d.id === selectedDeskId);
-    if (!desk) return;
-    const posX = Math.round(desk.x + (desk.width || 70) / 2);
-    const posY = Math.round(desk.y + (desk.height || 40) / 2);
-    addSingleSeat(desk.id, posX, posY);
-  }}
-  disabled={processing}
-  style={{ padding: "12px 20px", backgroundColor: "#0EA5A4", color: "white", border: "none", borderRadius: "8px", cursor: "pointer", flex: 1, fontSize: "16px", fontWeight: "bold" }}
->
-  ➕ Shto 1 Ulëse
-</button>
-              <button onClick={closeSeatModal} style={{ padding: "12px 20px", backgroundColor: "#6B7280", color: "black", border: "none", borderRadius: "8px", cursor: "pointer", flex: 1, fontSize: "16px" }}>❌ Anulo</button>
-            </div>
-          </div>
-        </div>
-      )}
 
-      {/* Delete modal */}
-      {showDeleteModal && (
-        <div style={{ position: "fixed", left: 0, top: 0, width: "100%", height: "100%", backgroundColor: "rgba(0,0,0,0.5)", display: "flex", justifyContent: "center", alignItems: "center", zIndex: 100 }}>
-          <div style={{ backgroundColor: "white", padding: 20, borderRadius: 8 }}>
-            <p>Konfirmo fshirjen e tavolinave</p>
-            <div style={{ display: "flex", gap: 8 }}>
-              <button onClick={() => { setDesks([]); setShowDeleteModal(false); }} style={{ padding: 8 }}>Po</button>
-              <button onClick={() => setShowDeleteModal(false)} style={{ padding: 8 }}>Jo</button>
+            <hr style={{margin: "20px 0", borderTop: "1px solid #eee"}} />
+
+            <div style={{ display: "flex", gap: "10px", justifyContent: "space-between" }}>
+               {/* Butoni per te fshire KETE tavoline */}
+              <button 
+                 onClick={() => {
+                     if(window.confirm("A jeni i sigurt qe doni ta fshini vetem kete tavoline?")) {
+                         deleteSingleDesk();
+                     }
+                 }} 
+                 style={{ padding: "10px 20px", backgroundColor: "#dc3545", color: "white", border: "none", borderRadius: "8px", cursor: "pointer" }}
+               >
+                 🗑️ Fshi Tavolinën
+              </button>
+
+              <button onClick={closeSeatModal} style={{ padding: "10px 20px", backgroundColor: "#6B7280", color: "white", border: "none", borderRadius: "8px", cursor: "pointer" }}>
+                  Mbyll
+              </button>
             </div>
           </div>
         </div>

@@ -14,7 +14,7 @@ export default function Modal({ open, title, children, onClose, actions }) {
     }, 10);
 
     const onKey = (e) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") ;
       if (e.key === "Tab") {
         const focusable = dialogRef.current.querySelectorAll(
           'button:not([disabled]), [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
@@ -37,7 +37,7 @@ export default function Modal({ open, title, children, onClose, actions }) {
       clearTimeout(timer);
       document.removeEventListener("keydown", onKey);
     };
-  }, [open, onClose]);
+  }, [open]);
 
   if (!open) return null;
 

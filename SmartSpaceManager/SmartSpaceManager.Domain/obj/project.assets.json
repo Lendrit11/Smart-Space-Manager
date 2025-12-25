@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jahir\\Desktop\\smartServer\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.Domain\\SmartSpaceManager.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\Jahir\\Desktop\\prova\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.Domain\\SmartSpaceManager.Domain.csproj",
       "projectName": "SmartSpaceManager.Domain",
-      "projectPath": "C:\\Users\\Jahir\\Desktop\\smartServer\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.Domain\\SmartSpaceManager.Domain.csproj",
+      "projectPath": "C:\\Users\\Jahir\\Desktop\\prova\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.Domain\\SmartSpaceManager.Domain.csproj",
       "packagesPath": "C:\\Users\\Jahir\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jahir\\Desktop\\smartServer\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.Domain\\obj\\",
+      "outputPath": "C:\\Users\\Jahir\\Desktop\\prova\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Jahir\\Desktop\\smartServer\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.API\\SmartSpaceManager.API.csproj": {}
+    "C:\\Users\\Jahir\\Desktop\\prova\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.API\\SmartSpaceManager.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Jahir\\Desktop\\smartServer\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.API\\SmartSpaceManager.API.csproj": {
+    "C:\\Users\\Jahir\\Desktop\\prova\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.API\\SmartSpaceManager.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jahir\\Desktop\\smartServer\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.API\\SmartSpaceManager.API.csproj",
+        "projectUniqueName": "C:\\Users\\Jahir\\Desktop\\prova\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.API\\SmartSpaceManager.API.csproj",
         "projectName": "SmartSpaceManager.API",
-        "projectPath": "C:\\Users\\Jahir\\Desktop\\smartServer\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.API\\SmartSpaceManager.API.csproj",
+        "projectPath": "C:\\Users\\Jahir\\Desktop\\prova\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.API\\SmartSpaceManager.API.csproj",
         "packagesPath": "C:\\Users\\Jahir\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jahir\\Desktop\\smartServer\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.API\\obj\\",
+        "outputPath": "C:\\Users\\Jahir\\Desktop\\prova\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,11 +32,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Jahir\\Desktop\\smartServer\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.DAL\\SmartSpaceManager.DAL.csproj": {
-                "projectPath": "C:\\Users\\Jahir\\Desktop\\smartServer\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.DAL\\SmartSpaceManager.DAL.csproj"
+              "C:\\Users\\Jahir\\Desktop\\prova\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.DAL\\SmartSpaceManager.DAL.csproj": {
+                "projectPath": "C:\\Users\\Jahir\\Desktop\\prova\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.DAL\\SmartSpaceManager.DAL.csproj"
               },
-              "C:\\Users\\Jahir\\Desktop\\smartServer\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.Service\\SmartSpaceManager.Service.csproj": {
-                "projectPath": "C:\\Users\\Jahir\\Desktop\\smartServer\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.Service\\SmartSpaceManager.Service.csproj"
+              "C:\\Users\\Jahir\\Desktop\\prova\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.Service\\SmartSpaceManager.Service.csproj": {
+                "projectPath": "C:\\Users\\Jahir\\Desktop\\prova\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.Service\\SmartSpaceManager.Service.csproj"
               }
             }
           }
@@ -113,14 +113,14 @@
         }
       }
     },
-    "C:\\Users\\Jahir\\Desktop\\smartServer\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.DAL\\SmartSpaceManager.DAL.csproj": {
+    "C:\\Users\\Jahir\\Desktop\\prova\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.DAL\\SmartSpaceManager.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jahir\\Desktop\\smartServer\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.DAL\\SmartSpaceManager.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\Jahir\\Desktop\\prova\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.DAL\\SmartSpaceManager.DAL.csproj",
         "projectName": "SmartSpaceManager.DAL",
-        "projectPath": "C:\\Users\\Jahir\\Desktop\\smartServer\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.DAL\\SmartSpaceManager.DAL.csproj",
+        "projectPath": "C:\\Users\\Jahir\\Desktop\\prova\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.DAL\\SmartSpaceManager.DAL.csproj",
         "packagesPath": "C:\\Users\\Jahir\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jahir\\Desktop\\smartServer\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.DAL\\obj\\",
+        "outputPath": "C:\\Users\\Jahir\\Desktop\\prova\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -141,8 +141,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Jahir\\Desktop\\smartServer\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.Domain\\SmartSpaceManager.Domain.csproj": {
-                "projectPath": "C:\\Users\\Jahir\\Desktop\\smartServer\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.Domain\\SmartSpaceManager.Domain.csproj"
+              "C:\\Users\\Jahir\\Desktop\\prova\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.Domain\\SmartSpaceManager.Domain.csproj": {
+                "projectPath": "C:\\Users\\Jahir\\Desktop\\prova\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.Domain\\SmartSpaceManager.Domain.csproj"
               }
             }
           }
@@ -228,14 +228,14 @@
         }
       }
     },
-    "C:\\Users\\Jahir\\Desktop\\smartServer\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.Domain\\SmartSpaceManager.Domain.csproj": {
+    "C:\\Users\\Jahir\\Desktop\\prova\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.Domain\\SmartSpaceManager.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jahir\\Desktop\\smartServer\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.Domain\\SmartSpaceManager.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Jahir\\Desktop\\prova\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.Domain\\SmartSpaceManager.Domain.csproj",
         "projectName": "SmartSpaceManager.Domain",
-        "projectPath": "C:\\Users\\Jahir\\Desktop\\smartServer\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.Domain\\SmartSpaceManager.Domain.csproj",
+        "projectPath": "C:\\Users\\Jahir\\Desktop\\prova\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.Domain\\SmartSpaceManager.Domain.csproj",
         "packagesPath": "C:\\Users\\Jahir\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jahir\\Desktop\\smartServer\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.Domain\\obj\\",
+        "outputPath": "C:\\Users\\Jahir\\Desktop\\prova\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -307,14 +307,14 @@
         }
       }
     },
-    "C:\\Users\\Jahir\\Desktop\\smartServer\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.Service\\SmartSpaceManager.Service.csproj": {
+    "C:\\Users\\Jahir\\Desktop\\prova\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.Service\\SmartSpaceManager.Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jahir\\Desktop\\smartServer\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.Service\\SmartSpaceManager.Service.csproj",
+        "projectUniqueName": "C:\\Users\\Jahir\\Desktop\\prova\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.Service\\SmartSpaceManager.Service.csproj",
         "projectName": "SmartSpaceManager.Service",
-        "projectPath": "C:\\Users\\Jahir\\Desktop\\smartServer\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.Service\\SmartSpaceManager.Service.csproj",
+        "projectPath": "C:\\Users\\Jahir\\Desktop\\prova\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.Service\\SmartSpaceManager.Service.csproj",
         "packagesPath": "C:\\Users\\Jahir\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jahir\\Desktop\\smartServer\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.Service\\obj\\",
+        "outputPath": "C:\\Users\\Jahir\\Desktop\\prova\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.Service\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -335,8 +335,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Jahir\\Desktop\\smartServer\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.DAL\\SmartSpaceManager.DAL.csproj": {
-                "projectPath": "C:\\Users\\Jahir\\Desktop\\smartServer\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.DAL\\SmartSpaceManager.DAL.csproj"
+              "C:\\Users\\Jahir\\Desktop\\prova\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.DAL\\SmartSpaceManager.DAL.csproj": {
+                "projectPath": "C:\\Users\\Jahir\\Desktop\\prova\\Smart-Space-Manager\\SmartSpaceManager\\SmartSpaceManager.DAL\\SmartSpaceManager.DAL.csproj"
               }
             }
           }

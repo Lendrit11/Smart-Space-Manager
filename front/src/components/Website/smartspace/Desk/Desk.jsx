@@ -85,8 +85,8 @@ function Desk({ id, x = 0, y = 0, label, type, seats = [], onMouseDown, onSeatCl
         let seatLeft, seatTop;
 
         if (typeof seat.x === "number" && typeof seat.y === "number") {
-          seatLeft = (x || 0) + seat.x;
-          seatTop = (y || 0) + seat.y;
+          seatLeft =  seat.x;
+          seatTop =  seat.y;
         } else if (isRound) {
           const centerX = (x || 0) + width / 2;
           const centerY = (y || 0) + height / 2;
